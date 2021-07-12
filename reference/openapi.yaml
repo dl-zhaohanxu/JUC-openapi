@@ -7,8 +7,8 @@ servers:
 paths:
   /application/v1/public/application:
     post:
-      summary: 申込APIです
-      operationId: 申込API
+      summary: 申込確定 API (Application Confirm API)
+      operationId: Application Confirm API
       requestBody:
         content:
           application/json:
@@ -16,7 +16,7 @@ paths:
               $ref: '#/components/schemas/ApplicationRegistResource'
             examples: {}
         description: 申込APIです。
-      description: 申込APIです。
+      description: Application Confirm API
       responses:
         '200':
           description: OK
@@ -25,13 +25,11 @@ paths:
               schema:
                 type: object
                 properties: {}
-              examples:
-                exampl:
-                  value: {}
+              examples: {}
     parameters: []
 components:
   schemas:
-    ApplicationRegistResource:
+    ApplicationRegistCommand:
       description: ''
       type: object
       properties:
@@ -624,3 +622,4 @@ components:
                 - 1
                 - 2
                 - 3
+      title: ''
