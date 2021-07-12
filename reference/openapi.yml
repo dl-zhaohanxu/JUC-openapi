@@ -30,11 +30,13 @@ paths:
           description: Bad Request
         '500':
           description: Internal Server Error
+      tags:
+        - application
     parameters: []
   '/application/confirm/{applicationId}':
     parameters:
       - schema:
-          type: string
+          type: number
         name: applicationId
         in: path
         required: true
@@ -51,6 +53,8 @@ paths:
           description: Internal Server Error
       description: Application Confirm
       parameters: []
+      tags:
+        - application
   /replenish-application:
     put:
       summary: 審査不備登録 API (Replenish Application Api)
@@ -68,6 +72,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ReplenishApplicationCommand'
+      tags:
+        - application
     parameters: []
   /application-status:
     parameters: []
@@ -87,6 +93,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateApplicationStatus'
+      tags:
+        - application
   /simulation:
     post:
       summary: Simulation Regist/Update
@@ -100,12 +108,15 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SimulationRegistCommand'
+      tags:
+        - simulation
   '/simulation/{simulationId}':
     parameters:
       - schema:
-          type: string
+          type: number
         name: simulationId
         in: path
+        description: '1'
         required: true
     delete:
       summary: Delete Simulation
@@ -114,6 +125,8 @@ paths:
         '200':
           description: OK
       description: delete simulation by id
+      tags:
+        - simulation
   '/application/{applicationId}':
     parameters:
       - schema:
@@ -123,7 +136,8 @@ paths:
         required: true
     get:
       summary: Your GET endpoint
-      tags: []
+      tags:
+        - application
       responses:
         '200':
           description: OK
