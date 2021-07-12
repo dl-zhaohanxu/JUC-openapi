@@ -87,6 +87,52 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateApplicationStatus'
+  /simulation:
+    post:
+      summary: Simulation Regist/Update
+      operationId: SimulationRegist
+      responses:
+        '200':
+          description: OK
+      description: simulation regist/update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimulationRegistCommand'
+  '/simulation/{simulationId}':
+    parameters:
+      - schema:
+          type: string
+        name: simulationId
+        in: path
+        required: true
+    delete:
+      summary: Delete Simulation
+      operationId: deleteSimulation
+      responses:
+        '200':
+          description: OK
+      description: delete simulation by id
+  '/application/{applicationId}':
+    parameters:
+      - schema:
+          type: string
+        name: applicationId
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationDetailResource'
+      operationId: getApplicationDetail
+      description: get application detail by id
 components:
   schemas:
     ApplicationRegistCommand:
@@ -1159,3 +1205,796 @@ components:
           productId: 2
           contractStatus: '003'
           comment: xxxx
+    SimulationRegistCommand:
+      description: ''
+      type: object
+      properties:
+        simulationId:
+          type: number
+        productId:
+          type: number
+        memberId:
+          type: string
+          minLength: 1
+        monthlyFee:
+          type: number
+        contractMonths:
+          type: number
+        requestNumberPlateFlag:
+          type: boolean
+        requestNumberPlate1:
+          type: string
+          minLength: 1
+        requestNumberPlate2:
+          type: string
+          minLength: 1
+        bonusFlag:
+          type: boolean
+        contractType:
+          type: number
+      required:
+        - simulationId
+        - productId
+        - memberId
+        - monthlyFee
+        - contractMonths
+        - requestNumberPlateFlag
+        - requestNumberPlate1
+        - requestNumberPlate2
+        - bonusFlag
+        - contractType
+      x-examples:
+        example-1:
+          simulationId: 0
+          productId: 0
+          memberId: string
+          monthlyFee: 0
+          contractMonths: 0
+          requestNumberPlateFlag: true
+          requestNumberPlate1: string
+          requestNumberPlate2: astring"
+          bonusFlag: true
+          contractType: 0
+    ApplicationDetailResource:
+      description: ''
+      type: object
+      properties:
+        applicationId:
+          type: number
+        productId:
+          type: number
+        memberId:
+          type: string
+          minLength: 1
+        monthlyFee:
+          type: number
+        contractMonths:
+          type: number
+        requestNumberPlateFlag:
+          type: boolean
+        requestNumberPlate1:
+          type: string
+          minLength: 1
+        requestNumberPlate2:
+          type: string
+          minLength: 1
+        bonusFlag:
+          type: boolean
+        monthlyPlannedDistance:
+          type: number
+        excessDrivingFee:
+          type: number
+        applicationAmount:
+          type: number
+        purchaseDealerChannel:
+          type: string
+          minLength: 1
+        purchaseDealerCode:
+          type: string
+          minLength: 1
+        purchaseDealerName:
+          type: string
+          minLength: 1
+        purchaseStoreCode:
+          type: string
+          minLength: 1
+        purchaseStoreName:
+          type: string
+          minLength: 1
+        purchaseMaintainerChannel:
+          type: string
+          minLength: 1
+        purchaseMaintainerCode:
+          type: string
+          minLength: 1
+        purchaseMaintainerName:
+          type: string
+          minLength: 1
+        purchaseMaintainerDealerStoreCode:
+          type: string
+          minLength: 1
+        purchaseMaintainerStoreName:
+          type: string
+          minLength: 1
+        usingPurposeType:
+          type: string
+          minLength: 1
+        usingPurposeLabel:
+          type: string
+          minLength: 1
+        parkingPostcode:
+          type: string
+          minLength: 1
+        parkingPrefecture:
+          type: number
+        parkingCity:
+          type: string
+          minLength: 1
+        parkingAddress:
+          type: string
+          minLength: 1
+        parkingCityKana:
+          type: string
+          minLength: 1
+        parkingAddressKana:
+          type: string
+          minLength: 1
+        productInfo:
+          type: object
+          properties:
+            makeName:
+              type: string
+              minLength: 1
+            modelName:
+              type: string
+              minLength: 1
+            gradeName:
+              type: string
+              minLength: 1
+            outerPlateColorDisplayName:
+              type: string
+              minLength: 1
+            interiorColorDisplayName:
+              type: string
+              minLength: 1
+            firstRegisterDate:
+              type: string
+              minLength: 1
+            monthlyPlannedDistance:
+              type: number
+            excessDrivingFee:
+              type: number
+            'monthlyFee ':
+              type: number
+            applicationAmount:
+              type: number
+            contractPeriod:
+              type: string
+              minLength: 1
+            expectedPublishStartDate:
+              type: string
+              minLength: 1
+            expectedPublishEndDate:
+              type: string
+              minLength: 1
+            comment1:
+              type: string
+              minLength: 1
+            comment2:
+              type: string
+              minLength: 1
+            productImages:
+              type: array
+              uniqueItems: true
+              minItems: 1
+              items:
+                required:
+                  - imageType
+                  - imageSubType
+                  - imageName
+                properties:
+                  imageType:
+                    type: string
+                    minLength: 1
+                  imageSubType:
+                    type: string
+                    minLength: 1
+                  imageName:
+                    type: string
+                    minLength: 1
+                  imageList:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - imageId
+                        - imageName
+                        - imageUrl
+                        - description
+                        - publishFlag
+                      properties:
+                        imageId:
+                          type: number
+                        imageName:
+                          type: string
+                          minLength: 1
+                        imageUrl:
+                          type: string
+                          minLength: 1
+                        description:
+                          type: string
+                          minLength: 1
+                        publishFlag:
+                          type: boolean
+            publishImages:
+              type: object
+              properties:
+                imageId:
+                  type: number
+                imageName:
+                  type: string
+                  minLength: 1
+                description:
+                  type: string
+                  minLength: 1
+                imageUrl:
+                  type: string
+                  minLength: 1
+                displayOrder:
+                  type: number
+              required:
+                - imageId
+                - imageName
+                - description
+                - imageUrl
+                - displayOrder
+          required:
+            - makeName
+            - modelName
+            - gradeName
+            - outerPlateColorDisplayName
+            - interiorColorDisplayName
+            - firstRegisterDate
+            - monthlyPlannedDistance
+            - excessDrivingFee
+            - 'monthlyFee '
+            - applicationAmount
+            - contractPeriod
+            - expectedPublishStartDate
+            - expectedPublishEndDate
+            - comment1
+            - comment2
+            - productImages
+            - publishImages
+        personalInfo:
+          type: object
+          properties:
+            member_id:
+              type: string
+              minLength: 1
+            update_user:
+              type: string
+              minLength: 1
+            update_datetime:
+              type: string
+              minLength: 1
+            member:
+              type: object
+              properties:
+                member_status_sv:
+                  type: number
+                email:
+                  type: string
+                  minLength: 1
+                mail_mag_flag:
+                  type: number
+                mail_active_flag:
+                  type: number
+              required:
+                - member_status_sv
+                - email
+                - mail_mag_flag
+                - mail_active_flag
+            personal:
+              type: object
+              properties:
+                member_name_sei:
+                  type: string
+                  minLength: 1
+                member_name_mei:
+                  type: string
+                  minLength: 1
+                member_name_sei_kana:
+                  type: string
+                  minLength: 1
+                member_name_mei_kana:
+                  type: string
+                  minLength: 1
+                gender_sv:
+                  type: number
+                birthday:
+                  type: string
+                  minLength: 1
+                postcode:
+                  type: string
+                  minLength: 1
+                prefecture_sv:
+                  type: number
+                city:
+                  type: string
+                  minLength: 1
+                address:
+                  type: string
+                  minLength: 1
+                city_kana:
+                  type: string
+                  minLength: 1
+                address_kana:
+                  type: string
+                  minLength: 1
+                phone_number:
+                  type: string
+                  minLength: 1
+                mobile_phone_number:
+                  type: string
+                  minLength: 1
+                preferred_contact_phone_number:
+                  type: string
+                  minLength: 1
+                preferred_contact_timezone_arr:
+                  type: array
+                  uniqueItems: true
+                  minItems: 1
+                  items:
+                    required: []
+                    properties: {}
+              required:
+                - member_name_sei
+                - member_name_mei
+                - member_name_sei_kana
+                - member_name_mei_kana
+                - gender_sv
+                - birthday
+                - postcode
+                - prefecture_sv
+                - city
+                - address
+                - city_kana
+                - address_kana
+                - phone_number
+                - mobile_phone_number
+                - preferred_contact_phone_number
+                - preferred_contact_timezone_arr
+            office:
+              type: object
+              properties:
+                job_type_sv:
+                  type: number
+                corporate_type_sv:
+                  type: number
+                classification_sv:
+                  type: number
+                office_name:
+                  type: string
+                  minLength: 1
+                office_name_kana:
+                  type: string
+                  minLength: 1
+                department:
+                  type: string
+                  minLength: 1
+                position_sv:
+                  type: number
+                continuous_years_sv:
+                  type: number
+                postcode:
+                  type: string
+                  minLength: 1
+                prefecture_sv:
+                  type: number
+                city:
+                  type: string
+                  minLength: 1
+                address:
+                  type: string
+                  minLength: 1
+                city_kana:
+                  type: string
+                  minLength: 1
+                address_kana:
+                  type: string
+                  minLength: 1
+                phone_number:
+                  type: string
+                  minLength: 1
+                headquarter_prefecture_sv:
+                  type: number
+                employee_number_sv:
+                  type: number
+              required:
+                - job_type_sv
+                - corporate_type_sv
+                - classification_sv
+                - office_name
+                - office_name_kana
+                - department
+                - position_sv
+                - continuous_years_sv
+                - postcode
+                - prefecture_sv
+                - city
+                - address
+                - city_kana
+                - address_kana
+                - phone_number
+                - headquarter_prefecture_sv
+                - employee_number_sv
+          required:
+            - member_id
+            - update_user
+            - update_datetime
+            - member
+            - personal
+            - office
+        companyInfo:
+          type: object
+          properties:
+            member_id:
+              type: string
+              minLength: 1
+            update_user:
+              type: string
+              minLength: 1
+            update_datetime:
+              type: string
+              minLength: 1
+            member:
+              type: object
+              properties:
+                member_status_sv:
+                  type: number
+                email:
+                  type: string
+                  minLength: 1
+                mail_mag_flag:
+                  type: number
+                mail_active_flag:
+                  type: number
+              required:
+                - member_status_sv
+                - email
+                - mail_mag_flag
+                - mail_active_flag
+            corporation:
+              type: object
+              properties:
+                corporation_number:
+                  type: string
+                  minLength: 1
+                corporate_type_sv:
+                  type: number
+                classification_sv:
+                  type: number
+                company_name:
+                  type: string
+                  minLength: 1
+                company_name_kana:
+                  type: string
+                  minLength: 1
+                postcode:
+                  type: string
+                  minLength: 1
+                prefecture_sv:
+                  type: number
+                city:
+                  type: string
+                  minLength: 1
+                address:
+                  type: string
+                  minLength: 1
+                city_kana:
+                  type: string
+                  minLength: 1
+                address_kana:
+                  type: string
+                  minLength: 1
+                representative_sei:
+                  type: string
+                  minLength: 1
+                representative_mei:
+                  type: string
+                  minLength: 1
+                representative_sei_kana:
+                  type: string
+                  minLength: 1
+                representative_mei_kana:
+                  type: string
+                  minLength: 1
+                phone_number:
+                  type: string
+                  minLength: 1
+                establishment_date:
+                  type: string
+                  minLength: 1
+                capital_sv:
+                  type: number
+                annual_sales:
+                  type: number
+                owned_number:
+                  type: number
+              required:
+                - corporation_number
+                - corporate_type_sv
+                - classification_sv
+                - company_name
+                - company_name_kana
+                - postcode
+                - prefecture_sv
+                - city
+                - address
+                - city_kana
+                - address_kana
+                - representative_sei
+                - representative_mei
+                - representative_sei_kana
+                - representative_mei_kana
+                - phone_number
+                - establishment_date
+                - capital_sv
+                - annual_sales
+                - owned_number
+            contact_staff:
+              type: object
+              properties:
+                department:
+                  type: string
+                  minLength: 1
+                contact_staff_sei:
+                  type: string
+                  minLength: 1
+                contact_staff_mei:
+                  type: string
+                  minLength: 1
+                contact_staff_sei_kana:
+                  type: string
+                  minLength: 1
+                contact_staff_mei_kana:
+                  type: string
+                  minLength: 1
+                postcode:
+                  type: string
+                  minLength: 1
+                prefecture_sv:
+                  type: number
+                city:
+                  type: string
+                  minLength: 1
+                address:
+                  type: string
+                  minLength: 1
+                city_kana:
+                  type: string
+                  minLength: 1
+                address_kana:
+                  type: string
+                  minLength: 1
+                preferred_contact_phone_number:
+                  type: string
+                  minLength: 1
+                preferred_contact_timezone_arr:
+                  type: array
+                  uniqueItems: true
+                  minItems: 1
+                  items:
+                    required: []
+                    properties: {}
+              required:
+                - department
+                - contact_staff_sei
+                - contact_staff_mei
+                - contact_staff_sei_kana
+                - contact_staff_mei_kana
+                - postcode
+                - prefecture_sv
+                - city
+                - address
+                - city_kana
+                - address_kana
+                - preferred_contact_phone_number
+                - preferred_contact_timezone_arr
+          required:
+            - member_id
+            - update_user
+            - update_datetime
+            - member
+            - corporation
+            - contact_staff
+      required:
+        - applicationId
+        - productId
+        - memberId
+        - monthlyFee
+        - contractMonths
+        - requestNumberPlateFlag
+        - requestNumberPlate1
+        - requestNumberPlate2
+        - bonusFlag
+        - monthlyPlannedDistance
+        - excessDrivingFee
+        - applicationAmount
+        - purchaseDealerChannel
+        - purchaseDealerCode
+        - purchaseDealerName
+        - purchaseStoreCode
+        - purchaseStoreName
+        - purchaseMaintainerChannel
+        - purchaseMaintainerCode
+        - purchaseMaintainerName
+        - purchaseMaintainerDealerStoreCode
+        - purchaseMaintainerStoreName
+        - usingPurposeType
+        - usingPurposeLabel
+        - parkingPostcode
+        - parkingPrefecture
+        - parkingCity
+        - parkingAddress
+        - parkingCityKana
+        - parkingAddressKana
+        - productInfo
+        - personalInfo
+        - companyInfo
+      x-examples:
+        example-1:
+          applicationId: 0
+          productId: 0
+          memberId: string
+          monthlyFee: 0
+          contractMonths: 0
+          requestNumberPlateFlag: true
+          requestNumberPlate1: string
+          requestNumberPlate2: string
+          bonusFlag: true
+          monthlyPlannedDistance: 0
+          excessDrivingFee: 0
+          applicationAmount: 0
+          purchaseDealerChannel: string
+          purchaseDealerCode: string
+          purchaseDealerName: string
+          purchaseStoreCode: string
+          purchaseStoreName: string
+          purchaseMaintainerChannel: string
+          purchaseMaintainerCode: string
+          purchaseMaintainerName: string
+          purchaseMaintainerDealerStoreCode: string
+          purchaseMaintainerStoreName: string
+          usingPurposeType: string
+          usingPurposeLabel: string
+          parkingPostcode: string
+          parkingPrefecture: 0
+          parkingCity: string
+          parkingAddress: string
+          parkingCityKana: string
+          parkingAddressKana: string
+          productInfo:
+            makeName: string
+            modelName: string
+            gradeName: string
+            outerPlateColorDisplayName: string
+            interiorColorDisplayName: string
+            firstRegisterDate: string
+            monthlyPlannedDistance: 0
+            excessDrivingFee: 0
+            'monthlyFee ': 0
+            applicationAmount: 0
+            contractPeriod: string
+            expectedPublishStartDate: string
+            expectedPublishEndDate: string
+            comment1: string
+            comment2: string
+            productImages:
+              - imageType: string
+                imageSubType: string
+                imageName: string
+                imageList:
+                  - imageId: 0
+                    imageName: string
+                    imageUrl: string
+                    description: string
+                    publishFlag: true
+            publishImages:
+              imageId: 0
+              imageName: string
+              description: string
+              imageUrl: string
+              displayOrder: 0
+          personalInfo:
+            member_id: string
+            update_user: string
+            update_datetime: string
+            member:
+              member_status_sv: 0
+              email: string
+              mail_mag_flag: 0
+              mail_active_flag: 0
+            personal:
+              member_name_sei: string
+              member_name_mei: string
+              member_name_sei_kana: string
+              member_name_mei_kana: string
+              gender_sv: 0
+              birthday: string
+              postcode: string
+              prefecture_sv: 0
+              city: string
+              address: string
+              city_kana: string
+              address_kana: string
+              phone_number: string
+              mobile_phone_number: string
+              preferred_contact_phone_number: string
+              preferred_contact_timezone_arr:
+                - {}
+            office:
+              job_type_sv: 0
+              corporate_type_sv: 0
+              classification_sv: 0
+              office_name: string
+              office_name_kana: string
+              department: string
+              position_sv: 0
+              continuous_years_sv: 0
+              postcode: string
+              prefecture_sv: 0
+              city: string
+              address: string
+              city_kana: string
+              address_kana: string
+              phone_number: string
+              headquarter_prefecture_sv: 0
+              employee_number_sv: 0
+          companyInfo:
+            member_id: string
+            update_user: string
+            update_datetime: string
+            member:
+              member_status_sv: 0
+              email: string
+              mail_mag_flag: 0
+              mail_active_flag: 0
+            corporation:
+              corporation_number: string
+              corporate_type_sv: 0
+              classification_sv: 0
+              company_name: string
+              company_name_kana: string
+              postcode: string
+              prefecture_sv: 0
+              city: string
+              address: string
+              city_kana: string
+              address_kana: string
+              representative_sei: string
+              representative_mei: string
+              representative_sei_kana: string
+              representative_mei_kana: string
+              phone_number: string
+              establishment_date: string
+              capital_sv: 0
+              annual_sales: 0
+              owned_number: 0
+            contact_staff:
+              department: string
+              contact_staff_sei: string
+              contact_staff_mei: string
+              contact_staff_sei_kana: string
+              contact_staff_mei_kana: string
+              postcode: string
+              prefecture_sv: 0
+              city: string
+              address: string
+              city_kana: string
+              address_kana: string
+              preferred_contact_phone_number: string
+              preferred_contact_timezone_arr:
+                - {}
