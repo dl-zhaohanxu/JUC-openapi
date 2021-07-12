@@ -1,0 +1,626 @@
+openapi: 3.1.0
+info:
+  title: 申込 API (Application Regist API)
+  version: '1.0'
+servers:
+  - url: 'http://localhost:8089'
+paths:
+  /application/v1/public/application:
+    post:
+      summary: 申込APIです
+      operationId: 申込API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationRegistResource'
+            examples: {}
+        description: 申込APIです。
+      description: 申込APIです。
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                exampl:
+                  value: {}
+    parameters: []
+components:
+  schemas:
+    ApplicationRegistResource:
+      description: ''
+      type: object
+      properties:
+        productId:
+          type: number
+        memberId:
+          type: string
+          minLength: 1
+        monthlyFee:
+          type: number
+        contractMonths:
+          type: number
+        requestNumberPlateFlag:
+          type: boolean
+        requestNumberPlate1:
+          type: string
+          minLength: 1
+        requestNumberPlate2:
+          type: string
+          minLength: 1
+        bonusFlag:
+          type: boolean
+        monthlyPlannedDistance:
+          type: number
+        excessDrivingFee:
+          type: number
+        applicationAmount:
+          type: number
+        purchaseDealerChannel:
+          type: string
+          minLength: 1
+        purchaseDealerCode:
+          type: string
+          minLength: 1
+        purchaseDealerName:
+          type: string
+          minLength: 1
+        purchaseStoreCode:
+          type: string
+          minLength: 1
+        purchaseStoreName:
+          type: string
+          minLength: 1
+        purchaseMaintainerChannel:
+          type: string
+          minLength: 1
+        purchaseMaintainerCode:
+          type: string
+          minLength: 1
+        purchaseMaintainerName:
+          type: string
+          minLength: 1
+        purchaseMaintainerDealerStoreCode:
+          type: string
+          minLength: 1
+        purchaseMaintainerStoreName:
+          type: string
+          minLength: 1
+        usingPurposeType:
+          type: string
+          minLength: 1
+        usingPurposeLabel:
+          type: string
+          minLength: 1
+        parkingPostcode:
+          type: string
+          minLength: 1
+        parkingPrefecture:
+          type: number
+        parkingCity:
+          type: string
+          minLength: 1
+        parkingAddress:
+          type: string
+          minLength: 1
+        parkingCityKana:
+          type: string
+          minLength: 1
+        parkingAddressKana:
+          type: string
+          minLength: 1
+        drivingLicenseNumber:
+          type: string
+          minLength: 1
+        drivingLicenseImgFront:
+          type: string
+          minLength: 1
+        drivingLicenseImgBack:
+          type: string
+          minLength: 1
+        personalInfo:
+          type: object
+          properties:
+            member_id:
+              type: string
+              minLength: 1
+            update_user:
+              type: string
+              minLength: 1
+            update_datetime:
+              type: string
+              minLength: 1
+            member:
+              type: object
+              properties:
+                member_status_sv:
+                  type: number
+                email:
+                  type: string
+                  minLength: 1
+                mail_mag_flag:
+                  type: number
+                mail_active_flag:
+                  type: number
+              required:
+                - member_status_sv
+                - email
+                - mail_mag_flag
+                - mail_active_flag
+            personal:
+              type: object
+              properties:
+                member_name_sei:
+                  type: string
+                  minLength: 1
+                member_name_mei:
+                  type: string
+                  minLength: 1
+                member_name_sei_kana:
+                  type: string
+                  minLength: 1
+                member_name_mei_kana:
+                  type: string
+                  minLength: 1
+                gender_sv:
+                  type: number
+                birthday:
+                  type: string
+                  minLength: 1
+                postcode:
+                  type: string
+                  minLength: 1
+                prefecture_sv:
+                  type: number
+                city:
+                  type: string
+                  minLength: 1
+                address:
+                  type: string
+                  minLength: 1
+                city_kana:
+                  type: string
+                  minLength: 1
+                address_kana:
+                  type: string
+                  minLength: 1
+                phone_number:
+                  type: string
+                  minLength: 1
+                mobile_phone_number:
+                  type: string
+                  minLength: 1
+                preferred_contact_phone_number:
+                  type: string
+                  minLength: 1
+                preferred_contact_timezone_arr:
+                  type: array
+                  items:
+                    required: []
+                    properties: {}
+              required:
+                - member_name_sei
+                - member_name_mei
+                - member_name_sei_kana
+                - member_name_mei_kana
+                - gender_sv
+                - birthday
+                - postcode
+                - prefecture_sv
+                - city
+                - address
+                - city_kana
+                - address_kana
+                - phone_number
+                - mobile_phone_number
+                - preferred_contact_phone_number
+                - preferred_contact_timezone_arr
+            office:
+              type: object
+              properties:
+                job_type_sv:
+                  type: number
+                corporate_type_sv:
+                  type: number
+                classification_sv:
+                  type: number
+                office_name:
+                  type: string
+                  minLength: 1
+                office_name_kana:
+                  type: string
+                  minLength: 1
+                department:
+                  type: string
+                  minLength: 1
+                position_sv:
+                  type: number
+                continuous_years_sv:
+                  type: number
+                postcode:
+                  type: string
+                  minLength: 1
+                prefecture_sv:
+                  type: number
+                city:
+                  type: string
+                  minLength: 1
+                address:
+                  type: string
+                  minLength: 1
+                city_kana:
+                  type: string
+                  minLength: 1
+                address_kana:
+                  type: string
+                  minLength: 1
+                phone_number:
+                  type: string
+                  minLength: 1
+                headquarter_prefecture_sv:
+                  type: number
+                employee_number_sv:
+                  type: number
+              required:
+                - job_type_sv
+                - corporate_type_sv
+                - classification_sv
+                - office_name
+                - office_name_kana
+                - department
+                - position_sv
+                - continuous_years_sv
+                - postcode
+                - prefecture_sv
+                - city
+                - address
+                - city_kana
+                - address_kana
+                - phone_number
+                - headquarter_prefecture_sv
+                - employee_number_sv
+          required:
+            - member_id
+            - update_user
+            - update_datetime
+            - member
+            - personal
+            - office
+        companyInfo:
+          type: object
+          properties:
+            member_id:
+              type: string
+              minLength: 1
+            update_user:
+              type: string
+              minLength: 1
+            update_datetime:
+              type: string
+              minLength: 1
+            member:
+              type: object
+              properties:
+                member_status_sv:
+                  type: number
+                email:
+                  type: string
+                  minLength: 1
+                mail_mag_flag:
+                  type: number
+                mail_active_flag:
+                  type: number
+              required:
+                - member_status_sv
+                - email
+                - mail_mag_flag
+                - mail_active_flag
+            corporation:
+              type: object
+              properties:
+                corporation_number:
+                  type: string
+                  minLength: 1
+                corporate_type_sv:
+                  type: number
+                classification_sv:
+                  type: number
+                company_name:
+                  type: string
+                  minLength: 1
+                company_name_kana:
+                  type: string
+                  minLength: 1
+                postcode:
+                  type: string
+                  minLength: 1
+                prefecture_sv:
+                  type: number
+                city:
+                  type: string
+                  minLength: 1
+                address:
+                  type: string
+                  minLength: 1
+                city_kana:
+                  type: string
+                  minLength: 1
+                address_kana:
+                  type: string
+                  minLength: 1
+                representative_sei:
+                  type: string
+                  minLength: 1
+                representative_mei:
+                  type: string
+                  minLength: 1
+                representative_sei_kana:
+                  type: string
+                  minLength: 1
+                representative_mei_kana:
+                  type: string
+                  minLength: 1
+                phone_number:
+                  type: string
+                  minLength: 1
+                establishment_date:
+                  type: string
+                  minLength: 1
+                capital_sv:
+                  type: number
+                annual_sales:
+                  type: number
+                owned_number:
+                  type: number
+              required:
+                - corporation_number
+                - corporate_type_sv
+                - classification_sv
+                - company_name
+                - company_name_kana
+                - postcode
+                - prefecture_sv
+                - city
+                - address
+                - city_kana
+                - address_kana
+                - representative_sei
+                - representative_mei
+                - representative_sei_kana
+                - representative_mei_kana
+                - phone_number
+                - establishment_date
+                - capital_sv
+                - annual_sales
+                - owned_number
+            contact_staff:
+              type: object
+              properties:
+                department:
+                  type: string
+                  minLength: 1
+                contact_staff_sei:
+                  type: string
+                  minLength: 1
+                contact_staff_mei:
+                  type: string
+                  minLength: 1
+                contact_staff_sei_kana:
+                  type: string
+                  minLength: 1
+                contact_staff_mei_kana:
+                  type: string
+                  minLength: 1
+                postcode:
+                  type: string
+                  minLength: 1
+                prefecture_sv:
+                  type: number
+                city:
+                  type: string
+                  minLength: 1
+                address:
+                  type: string
+                  minLength: 1
+                city_kana:
+                  type: string
+                  minLength: 1
+                address_kana:
+                  type: string
+                  minLength: 1
+                preferred_contact_phone_number:
+                  type: string
+                  minLength: 1
+                preferred_contact_timezone_arr:
+                  type: array
+                  items:
+                    required: []
+                    properties: {}
+              required:
+                - department
+                - contact_staff_sei
+                - contact_staff_mei
+                - contact_staff_sei_kana
+                - contact_staff_mei_kana
+                - postcode
+                - prefecture_sv
+                - city
+                - address
+                - city_kana
+                - address_kana
+                - preferred_contact_phone_number
+                - preferred_contact_timezone_arr
+          required:
+            - member_id
+            - update_user
+            - update_datetime
+            - member
+            - corporation
+            - contact_staff
+      required:
+        - productId
+        - memberId
+        - monthlyFee
+        - contractMonths
+        - requestNumberPlateFlag
+        - requestNumberPlate1
+        - requestNumberPlate2
+        - bonusFlag
+        - monthlyPlannedDistance
+        - excessDrivingFee
+        - applicationAmount
+        - purchaseDealerChannel
+        - purchaseDealerCode
+        - purchaseDealerName
+        - purchaseStoreCode
+        - purchaseStoreName
+        - purchaseMaintainerChannel
+        - purchaseMaintainerCode
+        - purchaseMaintainerName
+        - purchaseMaintainerDealerStoreCode
+        - purchaseMaintainerStoreName
+        - usingPurposeType
+        - usingPurposeLabel
+        - parkingPostcode
+        - parkingPrefecture
+        - parkingCity
+        - parkingAddress
+        - parkingCityKana
+        - parkingAddressKana
+        - drivingLicenseNumber
+        - drivingLicenseImgFront
+        - drivingLicenseImgBack
+        - personalInfo
+        - companyInfo
+      x-examples:
+        example-1:
+          productId: 1
+          memberId: '1'
+          monthlyFee: 100
+          contractMonths: 100
+          requestNumberPlateFlag: true
+          requestNumberPlate1: xxxx
+          requestNumberPlate2: xxxx
+          bonusFlag: true
+          monthlyPlannedDistance: 20
+          excessDrivingFee: 100
+          applicationAmount: 100
+          purchaseDealerChannel: channel
+          purchaseDealerCode: xx
+          purchaseDealerName: name
+          purchaseStoreCode: code
+          purchaseStoreName: name
+          purchaseMaintainerChannel: channel
+          purchaseMaintainerCode: code
+          purchaseMaintainerName: name
+          purchaseMaintainerDealerStoreCode: store code
+          purchaseMaintainerStoreName: store name
+          usingPurposeType: '1'
+          usingPurposeLabel: xxxxx
+          parkingPostcode: post code
+          parkingPrefecture: 10
+          parkingCity: city
+          parkingAddress: address
+          parkingCityKana: city kana
+          parkingAddressKana: address kana
+          drivingLicenseNumber: driving license number
+          drivingLicenseImgFront: driving license img front
+          drivingLicenseImgBack: driving license img back
+          personalInfo:
+            member_id: '1'
+            update_user: update user
+            update_datetime: '2021-11-12'
+            member:
+              member_status_sv: 10
+              email: email
+              mail_mag_flag: 1
+              mail_active_flag: 0
+            personal:
+              member_name_sei: name sei
+              member_name_mei: name mei
+              member_name_sei_kana: sei kana
+              member_name_mei_kana: mei kana
+              gender_sv: 1
+              birthday: '2021-11-12'
+              postcode: code
+              prefecture_sv: 20
+              city: city
+              address: address
+              city_kana: city kana
+              address_kana: address kana
+              phone_number: phone number
+              mobile_phone_number: mobile number
+              preferred_contact_phone_number: xxxxxx
+              preferred_contact_timezone_arr:
+                - 1
+                - 2
+                - 3
+            office:
+              job_type_sv: 1
+              corporate_type_sv: 2
+              classification_sv: 3
+              office_name: name
+              office_name_kana: kana
+              department: department
+              position_sv: 4
+              continuous_years_sv: 5
+              postcode: postcode
+              prefecture_sv: 6
+              city: city
+              address: address
+              city_kana: kana
+              address_kana: kana
+              phone_number: number
+              headquarter_prefecture_sv: 7
+              employee_number_sv: 8
+          companyInfo:
+            member_id: '2'
+            update_user: user
+            update_datetime: '2021-08-09'
+            member:
+              member_status_sv: 10
+              email: email
+              mail_mag_flag: 1
+              mail_active_flag: 0
+            corporation:
+              corporation_number: number
+              corporate_type_sv: 1
+              classification_sv: 2
+              company_name: name
+              company_name_kana: kana
+              postcode: post code
+              prefecture_sv: 4
+              city: city
+              address: address
+              city_kana: city kana
+              address_kana: address kana
+              representative_sei: representative sei
+              representative_mei: representative mei
+              representative_sei_kana: representative sei kana
+              representative_mei_kana: representative mei kana
+              phone_number: phone number
+              establishment_date: '2021-11-11'
+              capital_sv: 10
+              annual_sales: 20
+              owned_number: 30
+            contact_staff:
+              department: department
+              contact_staff_sei: contact staff sei
+              contact_staff_mei: contact staff mei
+              contact_staff_sei_kana: contact staff sei kana
+              contact_staff_mei_kana: contact staff mei kana
+              postcode: post code
+              prefecture_sv: 10
+              city: city
+              address: address
+              city_kana: city kana
+              address_kana: address kana
+              preferred_contact_phone_number: number
+              preferred_contact_timezone_arr:
+                - 1
+                - 2
+                - 3
