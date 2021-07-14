@@ -187,45 +187,55 @@ components:
       description: メンバーID
   schemas:
     InsertApplicationCommand:
-      title: AddApplicationCommand
+      description: ''
       type: object
-      description: 申込詳細
       properties:
+        simulationId:
+          type: number
         productId:
-          type: integer
-          description: 物件ID
+          type: number
         monthlyFee:
-          type: integer
-          description: 毎月のお支払い額
+          type: number
         contractMonths:
-          type: integer
-          description: 契約月数
+          type: number
         requestNumberPlateFlag:
           type: boolean
-          description: 希望ナンバーフラグ
         requestNumberPlate1:
           type: string
-          description: 希望ナンバー_第一希望
-          minLength: 0
-          maxLength: 32
+          minLength: 1
         requestNumberPlate2:
           type: string
-          description: 希望ナンバー_第二希望
-          minLength: 0
-          maxLength: 32
+          minLength: 1
         bonusFlag:
           type: boolean
-          description: ボーナス支払フラグ
         applicationAmount:
-          type: integer
-          description: 申込金金額
+          type: number
         contractType:
           type: string
-          description: 契約区分
-          minLength: 0
-          maxLength: 1
+          minLength: 1
       required:
+        - simulationId
         - productId
+        - monthlyFee
+        - contractMonths
+        - requestNumberPlateFlag
+        - requestNumberPlate1
+        - requestNumberPlate2
+        - bonusFlag
+        - applicationAmount
+        - contractType
+      x-examples:
+        example-1:
+          simulationId: 0
+          productId: 0
+          monthlyFee: 0
+          contractMonths: 0
+          requestNumberPlateFlag: true
+          requestNumberPlate1: string
+          requestNumberPlate2: string
+          bonusFlag: true
+          applicationAmount: 0
+          contractType: s
     ApplicationDetailsResources:
       title: application_detalis
       type: object
