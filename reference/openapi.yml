@@ -189,15 +189,27 @@ components:
     InsertApplicationCommand:
       description: ''
       type: object
+      x-examples:
+        example-1:
+          simulationId: 0
+          productId: 0
+          monthlyFee: 0
+          contractMonths: 0
+          requestNumberPlateFlag: true
+          requestNumberPlate1: string
+          requestNumberPlate2: string
+          bonusFlag: true
+          applicationAmount: 0
+          contractType: s
       properties:
         simulationId:
-          type: number
+          type: integer
         productId:
-          type: number
+          type: integer
         monthlyFee:
-          type: number
+          type: integer
         contractMonths:
-          type: number
+          type: integer
         requestNumberPlateFlag:
           type: boolean
         requestNumberPlate1:
@@ -209,7 +221,7 @@ components:
         bonusFlag:
           type: boolean
         applicationAmount:
-          type: number
+          type: integer
         contractType:
           type: string
           minLength: 1
@@ -224,18 +236,6 @@ components:
         - bonusFlag
         - applicationAmount
         - contractType
-      x-examples:
-        example-1:
-          simulationId: 0
-          productId: 0
-          monthlyFee: 0
-          contractMonths: 0
-          requestNumberPlateFlag: true
-          requestNumberPlate1: string
-          requestNumberPlate2: string
-          bonusFlag: true
-          applicationAmount: 0
-          contractType: s
     ApplicationDetailsResources:
       title: application_detalis
       type: object
