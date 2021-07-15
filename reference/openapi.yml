@@ -133,7 +133,7 @@ paths:
         - $ref: '#/components/parameters/memberId'
       tags:
         - Application
-  /application/v1/public/replenish-application:
+  '/application/v1/public/replenish-application/{applicationId}':
     put:
       operationId: replenishApplication
       responses:
@@ -150,6 +150,13 @@ paths:
               $ref: '#/components/schemas/ReplenishApplicationCommand'
       tags:
         - Application
+    parameters:
+      - schema:
+          type: string
+        name: applicationId
+        in: path
+        required: true
+        description: 申込ID
   /application/v1/public/application-status:
     put:
       operationId: updateApplicationStatus
