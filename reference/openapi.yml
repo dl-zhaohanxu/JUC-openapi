@@ -408,6 +408,9 @@ components:
         productId:
           type: integer
           description: 物件ID
+        contractType:
+          type: integer
+          description: 契約区分
         personalInfo:
           $ref: '#/components/schemas/PersonalInfo'
         companyInfo:
