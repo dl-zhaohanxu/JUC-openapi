@@ -90,6 +90,7 @@ paths:
       description: 申込APIです。
       parameters:
         - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/memberId'
       requestBody:
         content:
           application/json:
