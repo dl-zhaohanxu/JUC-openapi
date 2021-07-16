@@ -31,7 +31,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/InsertApplicationCommand'
+              $ref: '#/components/schemas/InsertSimulationApplicationCommand'
         description: ''
       tags:
         - simulation
@@ -193,7 +193,7 @@ components:
         maxLength: 32
       description: メンバーID
   schemas:
-    InsertApplicationCommand:
+    InsertSimulationApplicationCommand:
       description: ''
       type: object
       x-examples:
@@ -949,6 +949,131 @@ components:
         - vehicleImage
         - contractStatus
         - simulationDate
+    InsertApplicationCommand:
+      description: ''
+      type: object
+      x-examples: {}
+      properties:
+        productId:
+          type: integer
+        monthlyFee:
+          type: integer
+        contractMonths:
+          type: integer
+        requestNumberPlateFlag:
+          type: boolean
+        requestNumberPlate1:
+          type: string
+          minLength: 1
+        requestNumberPlate2:
+          type: string
+          minLength: 1
+        bonusFlag:
+          type: boolean
+        monthlyPlannedDistance:
+          type: integer
+        excessDrivingFee:
+          type: integer
+        applicationAmount:
+          type: integer
+        purchaseDealerChannel:
+          type: string
+          minLength: 1
+        purchaseDealerCode:
+          type: string
+          minLength: 1
+        purchaseDealerName:
+          type: string
+          minLength: 1
+        purchaseStoreCode:
+          type: string
+          minLength: 1
+        purchaseStoreName:
+          type: string
+          minLength: 1
+        purchaseMaintainerChannel:
+          type: string
+          minLength: 1
+        purchaseMaintainerCode:
+          type: string
+          minLength: 1
+        purchaseMaintainerName:
+          type: string
+          minLength: 1
+        purchaseMaintainerDealerStoreCode:
+          type: string
+          minLength: 1
+        purchaseMaintainerStoreName:
+          type: string
+          minLength: 1
+        usingPurposeType:
+          type: string
+          minLength: 1
+        usingPurposeLabel:
+          type: string
+          minLength: 1
+        parkingPostcode:
+          type: string
+          minLength: 1
+        parkingPrefecture:
+          type: integer
+        parkingCity:
+          type: string
+          minLength: 1
+        parkingAddress:
+          type: string
+          minLength: 1
+        parkingCityKana:
+          type: string
+          minLength: 1
+        parkingAddressKana:
+          type: string
+          minLength: 1
+        drivingLicenseNumber:
+          type: string
+          minLength: 1
+        drivingLicenseImgFront:
+          type: string
+          minLength: 1
+        drivingLicenseImgBack:
+          type: string
+          minLength: 1
+        persionInfo:
+          $ref: '#/components/schemas/PersonalInfo'
+        companyInfo:
+          $ref: '#/components/schemas/CompanyInfo'
+      required:
+        - productId
+        - monthlyFee
+        - contractMonths
+        - requestNumberPlateFlag
+        - requestNumberPlate1
+        - requestNumberPlate2
+        - bonusFlag
+        - monthlyPlannedDistance
+        - excessDrivingFee
+        - applicationAmount
+        - purchaseDealerChannel
+        - purchaseDealerCode
+        - purchaseDealerName
+        - purchaseStoreCode
+        - purchaseStoreName
+        - purchaseMaintainerChannel
+        - purchaseMaintainerCode
+        - purchaseMaintainerName
+        - purchaseMaintainerDealerStoreCode
+        - purchaseMaintainerStoreName
+        - usingPurposeType
+        - usingPurposeLabel
+        - parkingPostcode
+        - parkingPrefecture
+        - parkingCity
+        - parkingAddress
+        - parkingCityKana
+        - parkingAddressKana
+        - drivingLicenseNumber
+        - drivingLicenseImgFront
+        - drivingLicenseImgBack
   responses: {}
 security:
   - API Key: []
