@@ -793,6 +793,7 @@ components:
       title: productImage
       type: object
       description: ''
+      x-examples: {}
       properties:
         imageType:
           type: string
@@ -814,10 +815,22 @@ components:
           description: ファイル名
           maxLength: 255
           minLength: 0
-        imageList:
-          type: array
-          items:
-            $ref: '#/components/schemas/Image'
+        imageId:
+          type: integer
+          description: 物件画像ID
+        imageUrl:
+          type: string
+          minLength: 0
+          maxLength: 255
+          description: 物件画像url
+        description:
+          type: string
+          minLength: 0
+          maxLength: 255
+          description: コメント
+        displayOrder:
+          type: integer
+          description: 表示順
     ProductInfo:
       title: productInfo
       type: object
@@ -895,35 +908,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ProductImage'
-        publishImages:
-          type: array
-          items:
-            $ref: '#/components/schemas/PublishImage'
-    PublishImage:
-      title: publishImage
-      type: object
-      properties:
-        imageId:
-          type: integer
-          description: 物件画像ID
-        imageName:
-          type: string
-          description: ファイル名
-          maxLength: 128
-          minLength: 0
-        description:
-          type: string
-          description: コメント
-          maxLength: 255
-          minLength: 0
-        imageUrl:
-          type: string
-          description: 物件画像url
-          maxLength: 255
-          minLength: 0
-        displayOrder:
-          type: integer
-          description: 表示順
     Simulation:
       title: simulation
       type: object
