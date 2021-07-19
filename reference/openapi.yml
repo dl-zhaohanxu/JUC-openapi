@@ -848,6 +848,11 @@ components:
           description: 外鈑色
           maxLength: 32
           minLength: 0
+        interiorColorDisplayName:
+          type: string
+          description: 内装色
+          maxLength: 32
+          minLength: 0
         firstRegisterDate:
           type: string
           description: 初年度登録年月
