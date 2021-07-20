@@ -18,7 +18,7 @@ servers:
       basePath:
         default: application/v1/public
 paths:
-  /application/v1/public/simulations:
+  /application/v1/user/simulations:
     put:
       operationId: registerSimulation
       description: 申込一時保存APIです。
@@ -38,7 +38,8 @@ paths:
       responses:
         '200':
           description: OK
-  '/application/v1/public/applications/{applicationId}':
+    parameters: []
+  '/application/v1/user/applications/{applicationId}':
     parameters:
       - schema:
           type: integer
@@ -61,7 +62,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Content-Type'
         - $ref: '#/components/parameters/memberId'
-  '/application/v1/public/simulations/{simulationId}':
+  '/application/v1/user/simulations/{simulationId}':
     parameters:
       - schema:
           type: integer
@@ -81,7 +82,7 @@ paths:
       tags:
         - simulation
       summary: ''
-  /application/v1/public/applications:
+  /application/v1/user/applications:
     post:
       operationId: registerApplication
       responses:
@@ -115,7 +116,8 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Content-Type'
         - $ref: '#/components/parameters/memberId'
-  '/application/v1/public/application/{applicationId}/confirm':
+    parameters: []
+  '/application/v1/user/application/{applicationId}/confirm':
     parameters:
       - schema:
           type: integer
@@ -134,7 +136,7 @@ paths:
         - $ref: '#/components/parameters/memberId'
       tags:
         - Application
-  '/application/v1/public/replenish-application/{applicationId}':
+  '/application/v1/admin/replenish-application/{applicationId}':
     put:
       operationId: replenishApplication
       responses:
@@ -158,7 +160,7 @@ paths:
         in: path
         required: true
         description: 申込ID
-  /application/v1/public/application-status:
+  /application/v1/admin/application-status:
     put:
       operationId: updateApplicationStatus
       responses:
@@ -175,6 +177,7 @@ paths:
               $ref: '#/components/schemas/UpdateApplicationStatusCommand'
       tags:
         - Application
+    parameters: []
 components:
   parameters:
     Content-Type:
