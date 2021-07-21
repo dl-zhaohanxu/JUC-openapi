@@ -24,7 +24,7 @@ paths:
       description: 申込一時保存APIです。
       parameters:
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/memberId'
+        - $ref: '#/components/parameters/Authorization'
       security:
         - API Key: []
       requestBody:
@@ -61,7 +61,7 @@ paths:
       description: シミュレーション / 申込詳細取得APIです。
       parameters:
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/memberId'
+        - $ref: '#/components/parameters/Authorization'
   '/v1/user/simulations/{simulationId}':
     parameters:
       - schema:
@@ -78,7 +78,7 @@ paths:
       description: シミュレーション削除APIです。
       parameters:
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/memberId'
+        - $ref: '#/components/parameters/Authorization'
       tags:
         - simulation
       summary: ''
@@ -91,7 +91,7 @@ paths:
       description: 申込APIです。
       parameters:
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/memberId'
+        - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -115,7 +115,7 @@ paths:
       description: 申込一覧取得APIです。
       parameters:
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/memberId'
+        - $ref: '#/components/parameters/Authorization'
     parameters: []
   '/v1/user/application/{applicationId}/confirm':
     parameters:
@@ -133,7 +133,7 @@ paths:
       description: 申込確定APIです。
       parameters:
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/memberId'
+        - $ref: '#/components/parameters/Authorization'
       tags:
         - Application
   '/v1/admin/replenish-application/{applicationId}':
@@ -145,7 +145,7 @@ paths:
       description: 審査不備登録APIです。
       parameters:
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/memberId'
+        - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
@@ -169,7 +169,7 @@ paths:
       description: 審査ステータス更新APIです。
       parameters:
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/memberId'
+        - $ref: '#/components/parameters/Authorization'
       requestBody:
         content:
           application/json:
