@@ -180,7 +180,7 @@ paths:
         - Application
     parameters:
       - schema:
-          type: string
+          type: integer
         name: applicationId
         in: path
         required: true
