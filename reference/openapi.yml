@@ -117,7 +117,7 @@ paths:
         - $ref: '#/components/parameters/Content-Type'
         - $ref: '#/components/parameters/Authorization'
     parameters: []
-  '/v1/user/application/{applicationId}/confirm':
+  '/v1/user/applications/{applicationId}/confirm':
     parameters:
       - schema:
           type: integer
@@ -136,7 +136,7 @@ paths:
         - $ref: '#/components/parameters/Authorization'
       tags:
         - Application
-  '/v1/admin/replenish-application/{applicationId}':
+  '/v1/admin/applications/{applicationId}':
     put:
       operationId: replenishApplication
       responses:
@@ -160,7 +160,7 @@ paths:
         in: path
         required: true
         description: 申込ID
-  '/v1/admin/{applicationId}/status':
+  '/v1/admin/applications/{applicationId}/status':
     put:
       operationId: updateApplicationStatus
       responses:
@@ -461,7 +461,6 @@ components:
           description: 本人確認担当者名
         creditEntryDatetime:
           type: string
-          minLength: 1
           format: date-time
           description: 与信審査申込日時
         creditResult:
@@ -469,17 +468,14 @@ components:
           description: 与信結果
         creditDate:
           type: string
-          minLength: 1
           description: 与信結果確定日
           format: date-time
         creditExpireDate:
           type: string
-          minLength: 1
           format: date-time
           description: 与信結果有効期限
         contractEntryDatetime:
           type: string
-          minLength: 1
           format: date-time
           description: 本契約申込日時(契約日)
         reasonForDifference:
@@ -1105,9 +1101,6 @@ components:
         - monthlyFee
         - contractMonths
         - requestNumberPlateFlag
-        - requestNumberPlate1
-        - requestNumberPlate2
-        - bonusFlag
         - monthlyPlannedDistance
         - excessDrivingFee
         - applicationAmount
