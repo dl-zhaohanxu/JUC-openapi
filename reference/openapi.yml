@@ -18,7 +18,7 @@ servers:
       basePath:
         default: application/v1/public
 paths:
-  /application/v1/user/simulations:
+  /v1/user/simulations:
     put:
       operationId: registerSimulation
       description: 申込一時保存APIです。
@@ -39,7 +39,7 @@ paths:
         '200':
           description: OK
     parameters: []
-  '/application/v1/user/applications/{applicationId}':
+  '/v1/user/applications/{applicationId}':
     parameters:
       - schema:
           type: integer
@@ -62,7 +62,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Content-Type'
         - $ref: '#/components/parameters/memberId'
-  '/application/v1/user/simulations/{simulationId}':
+  '/v1/user/simulations/{simulationId}':
     parameters:
       - schema:
           type: integer
@@ -82,7 +82,7 @@ paths:
       tags:
         - simulation
       summary: ''
-  /application/v1/user/applications:
+  /v1/user/applications:
     post:
       operationId: registerApplication
       responses:
@@ -117,7 +117,7 @@ paths:
         - $ref: '#/components/parameters/Content-Type'
         - $ref: '#/components/parameters/memberId'
     parameters: []
-  '/application/v1/user/application/{applicationId}/confirm':
+  '/v1/user/application/{applicationId}/confirm':
     parameters:
       - schema:
           type: integer
@@ -136,7 +136,7 @@ paths:
         - $ref: '#/components/parameters/memberId'
       tags:
         - Application
-  '/application/v1/admin/replenish-application/{applicationId}':
+  '/v1/admin/replenish-application/{applicationId}':
     put:
       operationId: replenishApplication
       responses:
@@ -160,7 +160,7 @@ paths:
         in: path
         required: true
         description: 申込ID
-  /application/v1/admin/application-status:
+  /v1/admin/application-status:
     put:
       operationId: updateApplicationStatus
       responses:
@@ -175,6 +175,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateApplicationStatusCommand'
+        description: ''
       tags:
         - Application
     parameters: []
@@ -187,15 +188,15 @@ components:
         type: string
         example: application/json; charset=UTF-8
       description: application/json; charset=UTF-8
-    memberId:
-      name: memberId
+    Authorization:
+      name: Authorization
       in: header
       required: false
       schema:
         type: string
         minLength: 0
         maxLength: 32
-      description: メンバーID
+      description: 'Bearer {accessToken}'
   schemas:
     InsertSimulationApplicationCommand:
       description: ''
@@ -422,16 +423,15 @@ components:
       required:
         - productId
     UpdateApplicationStatusCommand:
-      title: UpdateApplicationCommand
+      description: ''
       type: object
-      description: 審査ステータス
+      x-examples: {}
       properties:
         applicationId:
           type: integer
           description: 申込ID
-        productId:
-          type: integer
-          description: 物件ID
+          exclusiveMinimum: false
+          exclusiveMaximum: false
         contractStatus:
           type: string
           minLength: 0
@@ -442,15 +442,106 @@ components:
             005:審査お見送り
             006:不備ご連絡中
             007:審査承認
-        comment:
+        contractNumber:
           type: string
           minLength: 0
+          maxLength: 32
+          description: 契約管理番号(TFC設定項目)
+        contractStatusUpdateDatetime:
+          type: string
+          format: date-time
+          description: 契約ステータス更新日
+        agreementDatetime:
+          type: string
+          format: date-time
+          description: 申込規約同意日時
+        identificationDatetime:
+          type: string
+          format: date-time
+          description: 本人確認日時
+        identificationResult:
+          type: integer
+          description: 本人確認結果
+        identificationPlace:
+          type: integer
+          description: 確認場所
+        identificationResultOther:
+          type: string
+          minLength: 1
+          description: 本人確認その他確認
+          maxLength: 128
+        identificationStaffLastName:
+          type: string
+          minLength: 1
+          maxLength: 16
+          description: 本人確認担当者姓
+        identificationStaffFirstName:
+          type: string
+          minLength: 1
+          maxLength: 16
+          description: 本人確認担当者名
+        creditEntryDatetime:
+          type: string
+          minLength: 1
+          format: date-time
+          description: 与信審査申込日時
+        creditResult:
+          type: integer
+          description: 与信結果
+        creditDate:
+          type: string
+          minLength: 1
+          description: 与信結果確定日
+          format: date-time
+        creditExpireDate:
+          type: string
+          minLength: 1
+          format: date-time
+          description: 与信結果有効期限
+        contractEntryDatetime:
+          type: string
+          minLength: 1
+          format: date-time
+          description: 本契約申込日時(契約日)
+        reasonForDifference:
+          type: string
+          minLength: 1
+          description: 差異理由
+          maxLength: 255
+        jpassComment:
+          type: string
+          minLength: 1
+          maxLength: 255
+          description: J-Pass連携コメント
+        followMailFlag:
+          type: boolean
+          description: フォローメール送信フラグ
+        comment:
+          type: string
+          minLength: 1
           maxLength: 32
           description: コメント
       required:
         - applicationId
-        - productId
         - contractStatus
+        - contractNumber
+        - contractStatusUpdateDatetime
+        - agreementDatetime
+        - identificationDatetime
+        - identificationResult
+        - identificationPlace
+        - identificationResultOther
+        - identificationStaffLastName
+        - identificationStaffFirstName
+        - creditEntryDatetime
+        - creditResult
+        - creditDate
+        - creditExpireDate
+        - contractEntryDatetime
+        - reasonForDifference
+        - jpassComment
+        - followMailFlag
+        - comment
     CompanyInfo:
       title: companyInfo
       type: object
