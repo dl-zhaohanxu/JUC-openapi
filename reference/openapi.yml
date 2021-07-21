@@ -201,18 +201,7 @@ components:
     InsertSimulationApplicationCommand:
       description: ''
       type: object
-      x-examples:
-        example-1:
-          simulationId: 0
-          productId: 0
-          monthlyFee: 0
-          contractMonths: 0
-          requestNumberPlateFlag: true
-          requestNumberPlate1: string
-          requestNumberPlate2: string
-          bonusFlag: true
-          applicationAmount: 0
-          contractType: s
+      x-examples: {}
       properties:
         simulationId:
           type: integer
@@ -237,17 +226,6 @@ components:
         contractType:
           type: string
           minLength: 1
-      required:
-        - simulationId
-        - productId
-        - monthlyFee
-        - contractMonths
-        - requestNumberPlateFlag
-        - requestNumberPlate1
-        - requestNumberPlate2
-        - bonusFlag
-        - applicationAmount
-        - contractType
     ApplicationDetailsResources:
       title: application_detalis
       type: object
@@ -541,7 +519,6 @@ components:
         - reasonForDifference
         - jpassComment
         - followMailFlag
-        - comment
     CompanyInfo:
       title: companyInfo
       type: object
