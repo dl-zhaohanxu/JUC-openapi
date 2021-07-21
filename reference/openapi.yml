@@ -160,7 +160,7 @@ paths:
         in: path
         required: true
         description: 申込ID
-  /v1/admin/application-status:
+  '/v1/admin/{applicationId}/status':
     put:
       operationId: updateApplicationStatus
       responses:
@@ -178,7 +178,13 @@ paths:
         description: ''
       tags:
         - Application
-    parameters: []
+    parameters:
+      - schema:
+          type: string
+        name: applicationId
+        in: path
+        required: true
+        description: 申込ID
 components:
   parameters:
     Content-Type:
@@ -405,11 +411,6 @@ components:
       type: object
       x-examples: {}
       properties:
-        applicationId:
-          type: integer
-          description: 申込ID
-          exclusiveMinimum: false
-          exclusiveMaximum: false
         contractStatus:
           type: string
           minLength: 0
@@ -500,7 +501,6 @@ components:
           maxLength: 32
           description: コメント
       required:
-        - applicationId
         - contractStatus
         - contractNumber
         - contractStatusUpdateDatetime
