@@ -3,10 +3,8 @@ info:
   title: application
   version: '1.0'
   description: |-
-    <li>Simulation Regist/Update API      : シミュレーション保存 API
-    <li>Simulation Delete API             : シミュレーション削除 API
-    <li>Simulation/Application Detail API : シミュレーション / 申込詳細取得 API
-    <li>Simulation/Application List API   : シミュレーション / 申込一覧取得 API
+    <li>Simulation/Application Detail API : 申込詳細取得 API
+    <li>Simulation/Application List API   : 申込一覧取得 API
     <li>Application Regist API            : 申込 API
     <li>Application Confirm API)          : 申込確定 API
     <li>Replenish Application API         : 審査不備登録 API
