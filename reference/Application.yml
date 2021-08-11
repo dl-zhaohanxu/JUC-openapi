@@ -12,7 +12,7 @@ info:
     <li>Replenish Application API         : 審査不備登録 API
     <li>Application Status Update API     : 審査ステータス更新 API
 servers:
-  - url: 'http://127.0.0.1:8185/{basePath}'
+  - url: 'http://127.0.0.1:8089/{basePath}'
     description: Local development env
     variables:
       basePath:
