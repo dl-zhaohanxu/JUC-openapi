@@ -1,0 +1,44 @@
+title: Maintenance
+type: object
+properties:
+  maintenanceId:
+    type: integer
+    description: メンテナンスID
+  branchId:
+    type: integer
+    description: 枝番
+  contractUpdateMaintenanceDate:
+    type: string
+    description: 契約更新保守日
+    minLength: 0
+    maxLength: 10
+    format: date
+  maintenanceDealerCode:
+    type: string
+    description: 保守販売店コード
+    maxLength: 32
+    minLength: 0
+  maintenanceDealerName:
+    type: string
+    maxLength: 32
+    minLength: 0
+    description: 保守販売店名
+  maintenanceStoreCode:
+    type: string
+    maxLength: 32
+    minLength: 0
+    description: 保守店舗コード
+  maintenanceStoreName:
+    type: string
+    description: 保守店舗名
+    maxLength: 32
+    minLength: 0
+required:
+  - maintenanceId
+  - branchId
+  - contractUpdateMaintenanceDate
+  - maintenanceDealerCode
+  - maintenanceDealerName
+  - maintenanceStoreCode
+  - maintenanceStoreName
+description: メンテナンス

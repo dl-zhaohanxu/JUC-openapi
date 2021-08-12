@@ -1,0 +1,19 @@
+title: UpdateApplicationResources
+type: object
+description: 審査不備登録データ
+properties:
+  productId:
+    type: integer
+    description: 物件ID
+  contractType:
+    type: integer
+    description: |-
+      契約区分
+      1:個人 2:法人
+  personalInfo:
+    $ref: ../../common/PersonalInfo.yaml
+  companyInfo:
+    $ref: ../../common/CompanyInfo.yaml
+required:
+  - productId
+  - contractType

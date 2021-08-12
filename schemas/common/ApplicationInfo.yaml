@@ -1,0 +1,38 @@
+title: ApplicationInfo
+type: object
+description: 申込
+properties:
+  applicationId:
+    type: integer
+    description: 申込ID
+  modelName:
+    type: string
+    description: 車種名
+    minLength: 0
+    maxLength: 32
+  gradeName:
+    type: string
+    minLength: 0
+    maxLength: 32
+    description: グレード名
+  vehicleImage:
+    type: string
+    minLength: 0
+    maxLength: 255
+    description: 車両画像
+  contractStatus:
+    type: string
+    minLength: 0
+    maxLength: 4
+    description: 契約ステータス
+  applicationDate:
+    type: string
+    format: date
+    description: お申込み日
+required:
+  - applicationId
+  - modelName
+  - gradeName
+  - vehicleImage
+  - contractStatus
+  - applicationDate

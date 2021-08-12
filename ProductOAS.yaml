@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: Product REST API
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000/product'
+paths:
+  '/v1/user/product-status/{productId}':
+    parameters:
+      - schema:
+          type: string
+        name: productId
+        in: path
+        required: true
+    put:
+      summary: Product Status Update API
+      operationId: updateProductStatus
+      responses:
+        '200':
+          description: OK
+      description: 物件ステータス更新
+      parameters:
+        - $ref: ./applicationOAS.yaml#/components/parameters/Content-Type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  description: 物件ステータス
+              required:
+                - status
+components:
+  schemas: {}
+  parameters:
+    Content-Type:
+      name: Content-Type
+      in: header
+      required: false
+      schema:
+        type: string
+        default: application/json; charset=UTF-8
+      description: HTTPコンテンツ・タイプ

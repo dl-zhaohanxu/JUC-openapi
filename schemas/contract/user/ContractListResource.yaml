@@ -1,0 +1,6 @@
+title: ContractListResource
+type: object
+properties:
+  contractId:
+    type: integer
+    description: 契約ID

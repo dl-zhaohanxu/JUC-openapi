@@ -1,0 +1,108 @@
+title: ProductInfo
+type: object
+description: 物件
+properties:
+  makeName:
+    type: string
+    description: メーカー名
+    maxLength: 50
+    minLength: 0
+  modelName:
+    type: string
+    description: 車種名
+    minLength: 0
+    maxLength: 50
+  gradeName:
+    type: string
+    description: グレード名
+    minLength: 0
+    maxLength: 50
+  outerPlateColorDisplayName:
+    type: string
+    description: 外鈑色
+    minLength: 0
+    maxLength: 32
+  interiorColorDisplayName:
+    type: string
+    minLength: 0
+    maxLength: 32
+    description: 内装色
+  firstRegisterDate:
+    type: string
+    description: 初年度登録年月
+    format: date
+  monthlyPlannedDistance:
+    type: integer
+    description: 予定月間走行距離
+  excessDrivingFee:
+    type: integer
+    description: 超過走行料
+  monthlyFee:
+    type: integer
+    description: 月額
+  applicationAmount:
+    type: integer
+    description: 申込金
+  contractPeriod:
+    type: string
+    description: 契約期間
+    format: date
+  expectedPublishStartDate:
+    type: string
+    format: date
+    description: 掲載開始日
+  expectedPublishEndDate:
+    type: string
+    description: 掲載終了日
+    format: date
+  comment1:
+    type: string
+    description: コメント1
+    maxLength: 255
+    minLength: 0
+  comment2:
+    type: string
+    description: コメント2
+    maxLength: 255
+    minLength: 0
+  productImages:
+    type: array
+    items:
+      title: productImage
+      type: object
+      description: ''
+      properties:
+        imageType:
+          type: string
+          description: |-
+            画像種類：
+            01:掲載用
+          minLength: 0
+          maxLength: 4
+        imageSubType:
+          type: string
+          description: |-
+            画像小分類
+            01：内装
+            02：外装
+          minLength: 0
+          maxLength: 4
+        imageName:
+          type: string
+          description: ファイル名
+          minLength: 0
+          maxLength: 255
+        imageId:
+          type: integer
+          description: 物件画像ID
+        imageUrl:
+          type: string
+          description: 物件画像url
+        description:
+          type: string
+          description: コメント
+          minLength: 0
+          maxLength: 255
+        displayOrder:
+          type: integer
+          description: 表示順

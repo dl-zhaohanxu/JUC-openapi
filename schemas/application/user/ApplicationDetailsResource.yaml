@@ -1,0 +1,102 @@
+title: ApplicationDetailsResource
+type: object
+description: 申込詳細
+properties:
+  applicationId:
+    type: integer
+    description: シミュレーションID(申込ID)
+  productId:
+    type: integer
+    description: 物件ID
+  memberId:
+    type: string
+    description: メンバーID
+  monthlyFee:
+    type: integer
+    description: 毎月のお支払い額
+  contractMonths:
+    type: integer
+    description: 契約月数
+  requestNumberPlateFlag:
+    type: boolean
+    description: 希望ナンバーフラグ
+  requestNumberPlate1:
+    type: string
+    description: 希望ナンバー_第一希望
+  requestNumberPlate2:
+    type: string
+    description: 希望ナンバー_第二希望
+  bonusFlag:
+    type: boolean
+    description: ボーナス支払フラグ
+  monthlyPlannedDistance:
+    type: integer
+    description: 月間予定走行距離
+  excessDrivingFee:
+    type: integer
+    description: 超過走行料
+  applicationAmount:
+    type: integer
+    description: 申込金金額
+  purchaseDealerChannel:
+    type: string
+    description: |-
+      購入販売店チャネル
+      1:TOYOTA; 2:TOYOPET; 3:COROLLA;4:Netz; 5:Mobility;6:LEXUS
+  purchaseDealerCode:
+    type: string
+    description: 購入販売店コード
+  purchaseDealerName:
+    type: string
+    description: 購入販売店名
+  purchaseStoreCode:
+    type: string
+    description: 購入販売店店舗コード
+  purchaseStoreName:
+    type: string
+    description: 購入店舗名
+  purchaseMaintainerChannel:
+    type: string
+    description: 購入時保守販売店チャネル
+  purchaseMaintainerCode:
+    type: string
+    description: 購入時保守販売店コード
+  purchaseMaintainerName:
+    type: string
+    description: 購入時保守販売店名
+  purchaseMaintainerDealerStoreCode:
+    type: string
+    description: 購入時保守販売店店舗コード
+  purchaseMaintainerStoreName:
+    type: string
+    description: 購入時保守店舗名
+  usingPurposeType:
+    type: integer
+    description: 主な使用目的
+  usingPurposeLabel:
+    type: string
+    description: 主な使用目的値ラベル
+  parkingPostcode:
+    type: string
+    description: 保管場所郵便番号
+  parkingPrefecture:
+    type: integer
+    description: 保管場所都道府県
+  parkingCity:
+    type: string
+    description: 保管場所市区郡町村
+  parkingAddress:
+    type: string
+    description: 保管場所丁目・番地
+  parkingCityKana:
+    type: string
+    description: 保管場所市区郡町村カナ
+  parkingAddressKana:
+    type: string
+    description: 保管場所丁目・番地カナ
+  productInfo:
+    $ref: ../../common/ProductInfo.yaml
+  personalInfo:
+    $ref: ../../common/PersonalInfo.yaml
+  companyInfo:
+    $ref: ../../common/CompanyInfo.yaml

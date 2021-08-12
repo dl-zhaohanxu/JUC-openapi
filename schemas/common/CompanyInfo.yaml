@@ -1,0 +1,133 @@
+title: CompanyInfo
+type: object
+description: 法人
+properties:
+  updateUser:
+    type: string
+    description: 更新ユーザ名
+  updateDatetime:
+    type: string
+    description: 更新日時
+  member:
+    type: object
+    properties:
+      memberStatusSV:
+        type: integer
+        description: 会員ステータス
+      email:
+        type: string
+        description: メールアドレス
+        format: email
+      mailMagFlag:
+        type: integer
+        description: メルマガフラグ
+      mailActiveFlag:
+        type: integer
+        description: メール死活確認結果
+  corporation:
+    type: object
+    properties:
+      corporationNumber:
+        type: string
+        description: 法人番号
+      corporateTypeSV:
+        type: integer
+        description: 法人格
+      classificationSV:
+        type: integer
+        description: 法人格前後区分
+      companyName:
+        type: string
+        description: 会社名
+      companyNameKana:
+        type: string
+        description: 会社名カナ
+      postcode:
+        type: string
+        description: 会社所在地郵便番号
+      prefectureSV:
+        type: integer
+        description: 会社所在地：都道府県
+      city:
+        type: string
+        description: 会社所在地：市区郡町村
+      address:
+        type: string
+        description: 会社所在地：丁目・番地
+      cityKana:
+        type: string
+        description: 会社所在地：市区郡町村カナ
+      addressKana:
+        type: string
+        description: 会社所在地：丁目・番地カナ
+      representativeSei:
+        type: string
+        description: 代表者名 姓
+      representativeMei:
+        type: string
+        description: 代表者名 名
+      representativeSeiKana:
+        type: string
+        description: 代表者名カナ　セイ
+      representativeMeiKana:
+        type: string
+        description: 代表者名カナ　メイ
+      phoneNumber:
+        type: string
+        description: 法人電話番号
+      establishmentDate:
+        type: string
+        description: 会社設立年月日
+      capitalSV:
+        type: integer
+        description: 資本金
+      annualSales:
+        type: integer
+        description: 年商
+      ownedNumber:
+        type: integer
+        description: 保有台数
+  contactStaff:
+    type: object
+    properties:
+      department:
+        type: string
+        description: 窓口担当者　部課
+      contactStaffSei:
+        type: string
+        description: 窓口担当者　姓
+      contactStaffMei:
+        type: string
+        description: 窓口担当者　名
+      contactStaffSeiKana:
+        type: string
+        description: 窓口担当者　セイ
+      contactStaffMeiKana:
+        type: string
+        description: 窓口担当者　メイ
+      postcode:
+        type: string
+        description: 窓口担当者郵便番号
+      prefectureSV:
+        type: integer
+        description: 窓口担当者住所：都道府県
+      city:
+        type: string
+        description: 窓口担当者住所：市区郡町村
+      address:
+        type: string
+        description: 窓口担当者住所：丁目・番地
+      cityKana:
+        type: string
+        description: 窓口担当者住所：市区郡町村カナ
+      addressKana:
+        type: string
+        description: 窓口担当者住所：丁目・番地カナ
+      preferredContactPhoneNumber:
+        type: string
+        description: 窓口担当者連絡先：日中連絡が取れる連絡先
+      preferredContactTimezoneArr:
+        type: array
+        description: 窓口担当者連絡先：日中連絡が取れる時間帯
+        items:
+          type: integer

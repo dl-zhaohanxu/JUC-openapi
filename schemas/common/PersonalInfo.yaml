@@ -1,0 +1,133 @@
+title: PersonalInfo
+type: object
+description: 個人
+properties:
+  updateUser:
+    type: string
+    description: 更新ユーザ名
+  updateDatetime:
+    type: string
+    description: 更新日時
+  member:
+    type: object
+    properties:
+      memberStatus_sv:
+        type: integer
+        description: 会員ステータス
+      email:
+        type: string
+        description: メールアドレス
+        format: email
+      mailMagFlag:
+        type: integer
+        description: メルマガフラグ
+      mailActiveFlag:
+        type: integer
+        description: メール死活確認結果
+  personal:
+    type: object
+    properties:
+      memberNameSei:
+        type: string
+        description: '会員個人:姓'
+      memberNameMei:
+        type: string
+        description: '会員個人:名'
+      memberNameSeiKana:
+        type: string
+        description: '会員個人:セイ'
+      memberNameMeiKana:
+        type: string
+        description: '会員個人:メイ'
+      genderSV:
+        type: integer
+        description: '会員個人:性別'
+      birthday:
+        type: string
+        description: '会員個人:生年月日'
+      postcode:
+        type: string
+        description: '会員個人:自宅郵便番号'
+      prefectureSV:
+        type: integer
+        description: '会員個人:自宅住所：都道府県'
+      city:
+        type: string
+        description: '会員個人:自宅住所：市区郡町村'
+      address:
+        type: string
+        description: '会員個人:自宅住所：丁目・番地'
+      cityKana:
+        type: string
+        description: '会員個人:自宅住所：市区郡町村カナ'
+      addressKana:
+        type: string
+        description: '会員個人:自宅住所：丁目・番地カナ'
+      phoneNumber:
+        type: string
+        description: '会員個人:連絡先：自宅電話番号'
+      mobilePhoneNumber:
+        type: string
+        description: '会員個人:連絡先：携帯電話番号'
+      preferredContactPhoneNumber:
+        type: string
+        description: '会員個人:連絡先：日中連絡が取れる連絡先'
+      preferredContactTimezoneArr:
+        type: array
+        description: '会員個人:連絡先：日中連絡が取れる時間帯'
+        items:
+          type: integer
+  office:
+    type: object
+    properties:
+      jobTypeSV:
+        type: integer
+        description: '会員勤務先:職業'
+      corporateTypeSV:
+        type: integer
+        description: '会員勤務先:勤務先：法人格'
+      classificationSV:
+        type: integer
+        description: '会員勤務先:勤務先：前後区分'
+      officeName:
+        type: string
+        description: '会員勤務先:勤務先：勤務先名'
+      officeNameKana:
+        type: string
+        description: '会員勤務先:勤務先：フリガナ'
+      department:
+        type: string
+        description: '会員勤務先:部署'
+      positionSV:
+        type: integer
+        description: '会員勤務先:役職'
+      continuousYearsSV:
+        type: integer
+        description: '会員勤務先:勤続年数'
+      postcode:
+        type: string
+        description: '会員勤務先:勤務先郵便番号'
+      prefectureSV:
+        type: integer
+        description: '会員勤務先:勤務先住所：都道府県'
+      city:
+        type: string
+        description: '会員勤務先:勤務先住所：市区郡町村'
+      address:
+        type: string
+        description: '会員勤務先:勤務先住所：丁目・番地'
+      cityKana:
+        type: string
+        description: '会員勤務先:勤務先住所：市区郡町村カナ'
+      addressKana:
+        type: string
+        description: '会員勤務先:勤務先住所：丁目・番地カナ'
+      phoneNumber:
+        type: string
+        description: '会員勤務先:勤務先電話番号'
+      headquarterPrefectureSV:
+        type: integer
+        description: '会員勤務先:勤務先本社所在地'
+      employeeNumberSV:
+        type: integer
+        description: '会員勤務先:勤務先従業員'

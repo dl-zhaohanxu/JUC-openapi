@@ -1,0 +1,48 @@
+title: UpdateVehicleInfoCommand
+type: object
+description: 契約更新(車両登録情報)
+properties:
+  contractId:
+    type: integer
+    description: 契約ID
+  contract:
+    type: object
+    properties:
+      contractAdminNumber:
+        type: string
+      contractStatus:
+        type: string
+      contractDate:
+        type: string
+      expirationDate:
+        type: string
+  contractPayment:
+    type: object
+    properties:
+      paymentStartDate:
+        type: string
+        format: date
+  carDelivery:
+    type: object
+    properties:
+      carDeliveryExpectedDate:
+        type: string
+  carContract:
+    type: object
+    properties:
+      carRegNumberArea:
+        type: string
+      carRegNumberClass:
+        type: string
+      carRegNumberKana:
+        type: string
+      carRegNumberSpecified:
+        type: string
+      initRegDate:
+        type: string
+      carRegDate:
+        type: string
+      inspectionDate:
+        type: string
+required:
+  - contractId

@@ -1,0 +1,245 @@
+openapi: 3.0.3
+info:
+  title: Contract REST API
+  version: '1.0'
+  description: japan used car contract API
+  contact:
+    url: 'https://kinto.jp'
+    email: kinto@kint.jp
+    name: kinto
+  license:
+    name: Kinto
+    url: 'https://kinto.jp'
+servers:
+  - url: 'http://127.0.0.1:8090/contract'
+    description: Local development env
+    variables:
+      basePath:
+        default: contract
+paths:
+  /v1/user/contract:
+    post:
+      summary: Contract Register API
+      operationId: insertContracts
+      responses:
+        '200':
+          description: OK
+      description: 契約申込
+      parameters:
+        - $ref: '#/components/parameters/Content-Type'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/contract/user/InsertContractCommand.yaml
+        description: ''
+      tags:
+        - UserContract
+  /v1/admin/update-commission:
+    put:
+      summary: Contract Commission Update API
+      operationId: updateCommission
+      responses:
+        '200':
+          description: OK
+      tags:
+        - UserContract
+      description: 契約自賠責発行情報更新
+      parameters:
+        - $ref: '#/components/parameters/Content-Type'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contractId:
+                  type: integer
+                  description: 契約ID
+                contractAdminNumber:
+                  type: string
+                  description: 契約管理番号
+                contractStatus:
+                  type: string
+                  description: |-
+                    契約ステータス
+                      001:メール確認中 
+                      002：申込受付 
+                      003：申込内容確認中 
+                      005：審査お見送り 
+                      006：不備ご連絡中 
+                      007：審査承認(TFC) 
+                      008：審査承認(KINTO) 
+                      009：契約完了（車両手配中） 
+                      010：工場出荷時期決定 
+                      011：納車準備中 
+                      101：ご利用中 
+                      901：申込取り消し 
+                      902：契約満了 
+                      903：解約済
+              required:
+                - contractId
+  /v1/admin/update-vehicle-info:
+    put:
+      summary: Contract Vehicle Info Update API
+      operationId: updateVehicleInfo
+      responses:
+        '200':
+          description: OK
+      description: 契約車両登録情報更新
+      parameters:
+        - $ref: '#/components/parameters/Content-Type'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/contract/admin/UpdateVehicleInfoCommand.yaml
+      tags:
+        - AdminContract
+  /v1/user/update-dealer:
+    post:
+      summary: Contract Dealer Update Apply API
+      operationId: updateDealer
+      responses:
+        '200':
+          description: OK
+      description: 販売店変更申請
+      parameters:
+        - $ref: '#/components/parameters/Content-Type'
+      tags:
+        - UserContract
+  /v1/admin/approve-dealer:
+    put:
+      summary: Contract Dealer Update Apply API
+      operationId: updateApproveDealer
+      responses:
+        '200':
+          description: OK
+      description: 販売店変更承認
+      parameters:
+        - $ref: '#/components/parameters/Content-Type'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contractId:
+                  type: integer
+                  description: 契約ID
+                contractAdminNumber:
+                  type: string
+                contractStatus:
+                  type: string
+              required:
+                - contractId
+      tags:
+        - AdminContract
+  '/v1//admin/contracts/{contractId}':
+    parameters:
+      - schema:
+          type: string
+        name: contractId
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: updateContract
+      responses:
+        '200':
+          description: OK
+      description: 契約更新（自賠責発行情報）
+      tags:
+        - AdminContract
+  '/v1/user/contracts/{contractId}':
+    parameters:
+      - schema:
+          type: string
+        name: contractId
+        in: path
+        required: true
+    get:
+      summary: Contract Detail API
+      operationId: getContractDetails
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/contract/user/ContractDetailsResource.yaml
+      description: 契約詳細
+      tags:
+        - UserContract
+      parameters:
+        - $ref: '#/components/parameters/Content-Type'
+  /v1/user/contracts:
+    get:
+      summary: Contract Search API
+      tags:
+        - UserContract
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/contract/user/ContractListResource.yaml
+      operationId: getUserContracts
+      description: 契約検索
+      parameters:
+        - $ref: '#/components/parameters/Content-Type'
+  /v1/user/update-using:
+    put:
+      summary: Contract Vehicle Using Update API
+      operationId: updateUsing
+      responses:
+        '200':
+          description: OK
+      description: 契約利用開始
+      tags:
+        - UserContract
+      parameters:
+        - $ref: '#/components/parameters/Content-Type'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/contract/user/UpdateContractUsingCommand.yaml
+  '/user/maintenance/{contractId}':
+    parameters:
+      - schema:
+          type: integer
+        name: contractId
+        in: path
+        required: true
+        description: 契約ID
+    get:
+      summary: Contract Maintenance Detail API
+      tags:
+        - UserContract
+      operationId: getMaintenance
+      description: メンテナンス詳細
+      parameters:
+        - $ref: '#/components/parameters/Content-Type'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/contract/user/ContractMaintenaceDetailsResource.yaml
+components:
+  schemas: {}
+  parameters:
+    Content-Type:
+      name: Content-Type
+      in: header
+      required: false
+      schema:
+        type: string
+        default: application/json; charset=UTF-8
+      description: HTTPコンテンツ・タイプ
+tags:
+  - name: AdminContract
+  - name: UserContract

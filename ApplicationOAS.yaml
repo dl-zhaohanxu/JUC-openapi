@@ -1,0 +1,157 @@
+openapi: 3.0.3
+info:
+  title: Application REST API
+  version: '1.0'
+  description: |-
+    <li>Application Detail API        : 申込詳細取得 API
+    <li>Application List API          : 申込一覧取得 API
+    <li>Application Regist API        : 申込 API
+    <li>Application Confirm API)      : 申込確定 API
+    <li>Replenish Application API     : 審査不備登録 API
+    <li>Application Status Update API : 審査ステータス更新 API
+servers:
+  - url: 'http://127.0.0.1:8185/{basePath}'
+    description: Local development env
+    variables:
+      basePath:
+        default: application
+paths:
+  '/v1/user/applications/{applicationId}':
+    parameters:
+      - schema:
+          type: integer
+        name: applicationId
+        in: path
+        required: true
+        description: 申込ID
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/application/user/ApplicationDetailsResource.yaml
+      operationId: getApplicationDetail
+      description: 申込詳細取得API
+      parameters: []
+      tags:
+        - UserApplication
+  /v1/user/applications:
+    post:
+      operationId: registerApplication
+      responses:
+        '200':
+          description: OK
+      description: 申込API
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/application/user/InsertApplicationCommand.yaml
+        description: ''
+      tags:
+        - UserApplication
+    get:
+      operationId: getApplicationList
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/application/user/ApplicationListResource.yaml
+      description: 申込一覧取得API
+      parameters: []
+      tags:
+        - UserApplication
+    parameters: []
+  '/v1/user/applications/{applicationId}/confirm/{token}':
+    parameters:
+      - schema:
+          type: integer
+        name: applicationId
+        in: path
+        required: true
+        description: 申込ID
+      - schema:
+          type: string
+        name: token
+        in: path
+        required: true
+        description: token
+    put:
+      operationId: confirmApplication
+      responses:
+        '200':
+          description: OK
+      description: 申込確定API
+      parameters: []
+      tags:
+        - UserApplication
+  '/v1/admin/applications/{applicationId}':
+    put:
+      operationId: updateApplication
+      responses:
+        '200':
+          description: OK
+      description: 審査不備登録API
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/application/admin/UpdateApplicationCommand.yaml
+      tags:
+        - AdminApplication
+    parameters:
+      - schema:
+          type: integer
+        name: applicationId
+        in: path
+        required: true
+  '/v1/admin/applications/{applicationId}/status':
+    put:
+      operationId: updateApplicationStatus
+      responses:
+        '200':
+          description: OK
+      description: 審査ステータス更新API
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/application/admin/UpdateApplicationStatusCommand.yaml
+      tags:
+        - AdminApplication
+    parameters:
+      - schema:
+          type: integer
+        name: applicationId
+        in: path
+        required: true
+components:
+  parameters:
+    Content-Type:
+      name: Content-Type
+      in: header
+      required: false
+      schema:
+        type: string
+        default: application/json; charset=UTF-8
+      description: HTTPコンテンツ・タイプ
+    Authorization:
+      name: Authorization
+      in: header
+      required: false
+      schema:
+        type: string
+      description: Bearerトークン
+  schemas: {}
+  responses: {}
+tags:
+  - name: AdminApplication
+  - name: UserApplication

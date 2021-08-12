@@ -1,0 +1,8 @@
+title: ApplicationListResources
+description: 申込一覧
+type: object
+properties:
+  applicationList:
+    type: array
+    items:
+      $ref: ../../common/ApplicationInfo.yaml

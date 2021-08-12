@@ -1,0 +1,21 @@
+title: ContractDetailsResource
+type: object
+properties:
+  monthlyFee:
+    type: integer
+    description: 月額利用料
+  bonusFlag:
+    type: boolean
+    description: ボーナス支払フラグ
+  contractMonths:
+    type: integer
+    description: 契約月数
+  monthlyPlannedDistance:
+    type: integer
+    description: 月間予定走行距離
+  excessDrivingFee:
+    type: integer
+    description: 超過走行料
+  applicationAmount:
+    type: integer
+    description: 申込金金額

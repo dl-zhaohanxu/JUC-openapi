@@ -1,0 +1,12 @@
+title: UpdateCommissionCommand
+type: object
+properties:
+  contractId:
+    type: integer
+  ' carNumber':
+    type: string
+    maxLength: 15
+  updateUser:
+    type: string
+required:
+  - contractId

@@ -1,0 +1,126 @@
+openapi: 3.0.0
+info:
+  title: Vehicle REST API
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000/vehicle/'
+    description: Local development env
+paths:
+  '/v1/user/vehicle-status/{vehicleId}':
+    parameters:
+      - schema:
+          type: string
+        name: vehicleId
+        in: path
+        required: true
+    put:
+      summary: Vehicle Status Update API
+      operationId: updateVehicleStatus
+      responses:
+        '200':
+          description: OK
+      description: 車両ステータス更新
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  description: 車両ステータス
+              required:
+                - status
+        description: ''
+      parameters:
+        - $ref: ./applicationOAS.yaml#/components/parameters/Content-Type
+  /v1/admin/vehicles:
+    get:
+      summary: Vehicle Search API
+      tags: []
+      responses: {}
+      operationId: findVehicles
+      description: 車両検索一覧API
+      parameters:
+        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/Authorization'
+components:
+  schemas:
+    SearchPageQuery:
+      title: SearchPageQuery
+      type: object
+      properties:
+        pageSize:
+          type: integer
+          default: 10
+          example: 10
+          description: page size
+        pageNum:
+          type: integer
+          default: 1
+          example: 1
+          description: page num
+      description: Search Page Query
+    VehicleQuery:
+      title: VehicleQuery
+      type: object
+      description: クエリ車両パラメータ
+      properties:
+        vin:
+          type: string
+          description: 車台番号
+          minLength: 0
+          maxLength: 32
+        vehicleRegisterNumber:
+          type: string
+          description: 自動車登録番号
+          minLength: 0
+          maxLength: 32
+        makeName:
+          type: string
+          description: メーカー名
+          maxLength: 255
+          minLength: 0
+        modelName:
+          type: string
+          description: 車種名
+          maxLength: 255
+          minLength: 0
+        gradeCode:
+          type: string
+          description: グレードコード
+          minLength: 10
+          maxLength: 32
+        vehicleStatus:
+          type: string
+          description: |-
+            車両ステータス：
+            01：查定(販売店)
+            02：特約精算金請求
+            03：一時輸送
+            04：一時保管
+            05：仕分け
+            06：二次輸送
+            07：一時抹消
+            08：加修
+            09：撮影·清掃
+          minLength: 0
+          maxLength: 4
+        SearchMakeQuery:
+          $ref: '#/components/schemas/SearchPageQuery'
+  parameters:
+    Content-Type:
+      name: Content-Type
+      in: header
+      required: false
+      schema:
+        type: string
+        default: application/json; charset=UTF-8
+      description: HTTP コンテンツ・タイプ
+    Authorization:
+      name: Authorization
+      in: header
+      required: false
+      schema:
+        type: string
+      description: 署名なしトークン

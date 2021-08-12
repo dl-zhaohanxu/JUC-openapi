@@ -1,0 +1,39 @@
+title: InsertContractCommand
+type: object
+description: 契約申込データ
+properties:
+  applicationId:
+    type: integer
+    description: 申込ID
+  brandCode:
+    type: string
+    minLength: 0
+    maxLength: 4
+    description: |-
+      カード会社
+      Visa("001")
+      MasterCard("002")
+      JCB("003")
+      AmericanExpress("004")
+      DinersClub("005")
+  cardNumber:
+    type: string
+    minLength: 0
+    maxLength: 16
+    description: カード番号
+  holderName:
+    type: string
+    description: カード名義人
+  expire:
+    type: string
+    description: 有効期限
+  token:
+    type: string
+    description: トークン
+required:
+  - applicationId
+  - brandCode
+  - cardNumber
+  - holderName
+  - expire
+  - token
