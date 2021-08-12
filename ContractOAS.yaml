@@ -25,8 +25,7 @@ paths:
         '200':
           description: OK
       description: 契約申込
-      parameters:
-        - $ref: '#/components/parameters/Content-Type'
+      parameters: []
       requestBody:
         content:
           application/json:
@@ -45,8 +44,7 @@ paths:
       tags:
         - UserContract
       description: 契約自賠責発行情報更新
-      parameters:
-        - $ref: '#/components/parameters/Content-Type'
+      parameters: []
       requestBody:
         content:
           application/json:
@@ -60,8 +58,7 @@ paths:
         '200':
           description: OK
       description: 契約車両登録情報更新
-      parameters:
-        - $ref: '#/components/parameters/Content-Type'
+      parameters: []
       requestBody:
         content:
           application/json:
@@ -77,8 +74,7 @@ paths:
         '200':
           description: OK
       description: 販売店変更申請
-      parameters:
-        - $ref: '#/components/parameters/Content-Type'
+      parameters: []
       tags:
         - UserContract
   /v1/admin/approve-dealer:
@@ -89,8 +85,7 @@ paths:
         '200':
           description: OK
       description: 販売店変更承認
-      parameters:
-        - $ref: '#/components/parameters/Content-Type'
+      parameters: []
       requestBody:
         content:
           application/json:
@@ -144,8 +139,7 @@ paths:
       description: 契約詳細
       tags:
         - UserContract
-      parameters:
-        - $ref: '#/components/parameters/Content-Type'
+      parameters: []
   /v1/user/contracts:
     get:
       summary: Contract Search API
@@ -160,8 +154,7 @@ paths:
                 $ref: ./schemas/contract/user/ContractListResource.yaml
       operationId: getUserContracts
       description: 契約検索
-      parameters:
-        - $ref: '#/components/parameters/Content-Type'
+      parameters: []
   /v1/user/update-using:
     put:
       summary: Contract Vehicle Using Update API
@@ -172,8 +165,7 @@ paths:
       description: 契約利用開始
       tags:
         - UserContract
-      parameters:
-        - $ref: '#/components/parameters/Content-Type'
+      parameters: []
       requestBody:
         content:
           application/json:
@@ -193,8 +185,7 @@ paths:
         - UserContract
       operationId: getMaintenance
       description: メンテナンス詳細
-      parameters:
-        - $ref: '#/components/parameters/Content-Type'
+      parameters: []
       responses:
         '200':
           description: OK
