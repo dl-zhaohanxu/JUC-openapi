@@ -51,34 +51,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                contractId:
-                  type: integer
-                  description: 契約ID
-                contractAdminNumber:
-                  type: string
-                  description: 契約管理番号
-                contractStatus:
-                  type: string
-                  description: |-
-                    契約ステータス
-                      001:メール確認中 
-                      002：申込受付 
-                      003：申込内容確認中 
-                      005：審査お見送り 
-                      006：不備ご連絡中 
-                      007：審査承認(TFC) 
-                      008：審査承認(KINTO) 
-                      009：契約完了（車両手配中） 
-                      010：工場出荷時期決定 
-                      011：納車準備中 
-                      101：ご利用中 
-                      901：申込取り消し 
-                      902：契約満了 
-                      903：解約済
-              required:
-                - contractId
+              $ref: ./schemas/contract/admin/UpdateCommissionCommand.yaml
   /v1/admin/update-vehicle-info:
     put:
       summary: Contract Vehicle Info Update API

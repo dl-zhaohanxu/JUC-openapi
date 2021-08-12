@@ -6,7 +6,5 @@ properties:
   serialNumber:
     type: string
     maxLength: 15
-  updateUser:
-    type: string
 required:
   - contractId
