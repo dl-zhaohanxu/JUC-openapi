@@ -3,7 +3,7 @@ type: object
 properties:
   contractId:
     type: integer
-  ' carNumber':
+  serialNumber:
     type: string
     maxLength: 15
   updateUser:
