@@ -1,0 +1,29 @@
+title: UpdateDealerCommand
+type: object
+properties:
+  contractId:
+    type: integer
+  dealer:
+    type: object
+    properties:
+      dealerCode:
+        type: string
+      staff:
+        type: string
+      purchaseMaintenance:
+        type: integer
+  dealerChange:
+    type: object
+    properties:
+      branchNo:
+        type: string
+      changeStatus:
+        type: integer
+      requestDealerCode:
+        type: string
+      staff:
+        type: string
+      dealerChangeReason:
+        type: integer
+      dealerChangeReasonOther:
+        type: string

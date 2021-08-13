@@ -77,6 +77,11 @@ paths:
       parameters: []
       tags:
         - UserContract
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/application/user/UpdateDealerCommand.yaml
   /v1/admin/approve-dealer:
     put:
       summary: Contract Dealer Update Apply API
