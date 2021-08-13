@@ -1,0 +1,22 @@
+title: ContractPaymentDetail
+type: object
+properties:
+  contractId:
+    type: integer
+  paymentCode:
+    type: string
+  paymentStartDate:
+    type: string
+    format: date
+  gmoId:
+    type: string
+  cardBrand:
+    type: string
+  paymentType:
+    type: integer
+  paymentAmount:
+    type: integer
+  cardLastFourDigit:
+    type: string
+  cardExpireDate:
+    type: string
