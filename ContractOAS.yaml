@@ -95,17 +95,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                contractId:
-                  type: integer
-                  description: 契約ID
-                contractAdminNumber:
-                  type: string
-                contractStatus:
-                  type: string
-              required:
-                - contractId
+              $ref: ./schemas/contract/admin/UpdateApplayDealer.yaml
       tags:
         - AdminContract
   '/v1//admin/contracts/{contractId}':
