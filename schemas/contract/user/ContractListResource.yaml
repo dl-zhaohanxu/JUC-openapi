@@ -5,31 +5,4 @@ properties:
     type: array
     description: 契約ID
     items:
-      type: object
-      properties:
-        contractId:
-          type: integer
-        applicationId:
-          type: integer
-        memberId:
-          type: string
-        productId:
-          type: integer
-        contractStatus:
-          type: string
-        contractStartDate:
-          type: string
-        paymentNo:
-          type: string
-        paymentAmount:
-          type: string
-        gmoId:
-          type: string
-        paymentMethod:
-          type: string
-        cardBrandSv:
-          type: string
-        cardLastFourDigit:
-          type: string
-        cardExpireDate:
-          type: string
+      $ref: ./ContractListInfo.yaml
