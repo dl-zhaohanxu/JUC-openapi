@@ -1,6 +1,43 @@
-title: ContractDetailsResource
+description: ''
 type: object
+x-examples:
+  example-1:
+    contractId: 1001
+    applicationId: 1001
+    memberId: '001'
+    productId: 1001
+    monthlyFee: 100
+    bonusFlag: true
+    contractMonths: 1000
+    monthlyPlannedDistance: 100
+    excessDrivingFee: 1000
+    applicationAmount: 1000
+    requestintegerPlateFlag: 1
+    requestintegerPlate1: ABCDF
+    requestintegerPlate2: ABCDE
+    requestPlateAmount: 10000
+    purchaseDealerChannel: 1
+    purchaseDealerCode: X
+    purchaseDealerName: XX
+    purchaseStoreCode: ABC
+    purchaseStoreName: XX
+    purchaseMaintainerChannel: 1
+    purchaseMaintainerCode: ABC
+    purchaseMaintainerName: XX
+    purchaseMaintenanceStoreCode: ABC
 properties:
+  contractId:
+    type: integer
+    description: 契約ID
+  applicationId:
+    type: integer
+    description: 申込ID
+  memberId:
+    type: string
+    description: メンバーID
+  productId:
+    type: integer
+    description: 物件ID
   monthlyFee:
     type: integer
     description: 月額利用料
@@ -19,3 +56,54 @@ properties:
   applicationAmount:
     type: integer
     description: 申込金金額
+  requestintegerPlateFlag:
+    type: integer
+    description: '希望ナンバーフラグ:1:なし 2:あり'
+  requestintegerPlate1:
+    type: string
+    description: 希望ナンバー_第一希望
+  requestintegerPlate2:
+    type: string
+    description: 希望ナンバー_第二希望
+  requestPlateAmount:
+    type: integer
+    description: 希望ナンバー金額
+  purchaseDealerChannel:
+    type: integer
+    description: |-
+      購入販売店チャネル
+      1:TOYOTA;
+
+      2:TOYOPET
+
+      3:COROLLA;
+
+      4:Netz;
+
+      5:Mobility;
+
+      6:LEXUS
+  purchaseDealerCode:
+    type: string
+    description: 購入販売店コード
+  purchaseDealerName:
+    type: string
+    description: 購入販売店名
+  purchaseStoreCode:
+    type: string
+    description: 購入販売店店舗コード
+  purchaseStoreName:
+    type: string
+    description: 購入店舗名
+  purchaseMaintainerChannel:
+    type: integer
+    description: 購入時保守販売店チャネル
+  purchaseMaintainerCode:
+    type: string
+    description: 購入時保守販売店コード
+  purchaseMaintainerName:
+    type: string
+    description: 購入時保守販売店名
+  purchaseMaintenanceStoreCode:
+    type: string
+    description: 購入時保守販売店店舗コード

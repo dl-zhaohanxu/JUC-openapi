@@ -128,7 +128,7 @@ paths:
         required: true
     get:
       summary: Contract Detail API
-      operationId: getContractDetails
+      operationId: getContractDetail
       responses:
         '200':
           description: OK
