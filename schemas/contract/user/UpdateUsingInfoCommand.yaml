@@ -6,7 +6,7 @@ properties:
   postCode:
     type: string
   prefecture:
-    type: string
+    type: integer
   city:
     type: string
   cityKana:
