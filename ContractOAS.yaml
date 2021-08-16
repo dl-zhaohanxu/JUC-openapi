@@ -152,7 +152,7 @@ paths:
             application/json:
               schema:
                 $ref: ./schemas/contract/user/ContractListResource.yaml
-      operationId: getUserContracts
+      operationId: findContracts
       description: 契約検索
       parameters: []
   /v1/user/update-using:

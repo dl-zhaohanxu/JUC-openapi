@@ -13,13 +13,13 @@ properties:
     type: string
   contractStartDate:
     type: string
-  paymentNo:
+  ContractPaymentId:
     type: string
   paymentAmount:
     type: string
   gmoId:
     type: string
-  paymentMethod:
+  paymentCode:
     type: string
   cardBrand:
     type: string
