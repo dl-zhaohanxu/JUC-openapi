@@ -180,7 +180,7 @@ paths:
   /v1/user/start-using:
     put:
       summary: ''
-      operationId: upateStartUsing
+      operationId: updateStartUsing
       responses:
         '200':
           description: OK
