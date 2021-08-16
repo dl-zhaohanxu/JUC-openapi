@@ -69,7 +69,6 @@ properties:
     type: integer
     description: 希望ナンバー金額
   purchaseDealerChannel:
-    type: integer
     description: |-
       購入販売店チャネル
       1:TOYOTA;
@@ -83,6 +82,7 @@ properties:
       5:Mobility;
 
       6:LEXUS
+    type: string
   purchaseDealerCode:
     type: string
     description: 購入販売店コード
@@ -96,8 +96,8 @@ properties:
     type: string
     description: 購入店舗名
   purchaseMaintainerChannel:
-    type: integer
     description: 購入時保守販売店チャネル
+    type: string
   purchaseMaintainerCode:
     type: string
     description: 購入時保守販売店コード
