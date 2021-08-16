@@ -1,5 +1,18 @@
 title: Update
 type: object
 properties:
-  id:
+  contractId:
+    type: integer
+    description: 契約ID
+  contractAdminNumber:
     type: string
+    minLength: 15
+    maxLength: 15
+    description: 契約管理番号
+  contractStatus:
+    type: string
+    description: 契約ステータス
+required:
+  - contractId
+  - contractAdminNumber
+  - contractStatus

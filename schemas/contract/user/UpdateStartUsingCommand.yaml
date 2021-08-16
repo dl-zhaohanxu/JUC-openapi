@@ -4,9 +4,5 @@ properties:
   contractId:
     type: integer
     description: 契約ID
-  contractAdminNumber:
-    type: string
-  contractStatus:
-    type: string
 required:
   - contractId

@@ -1,5 +1,25 @@
 title: UpdateUsingInfo
 type: object
 properties:
-  id:
+  contractId:
+    type: integer
+  postCode:
     type: string
+  prefecture:
+    type: string
+  city:
+    type: string
+  cityKana:
+    type: string
+  address:
+    type: string
+  addressKana:
+    type: string
+required:
+  - contractId
+  - postCode
+  - prefecture
+  - city
+  - cityKana
+  - address
+  - addressKana
