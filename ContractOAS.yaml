@@ -155,22 +155,6 @@ paths:
       operationId: findContracts
       description: 契約検索
       parameters: []
-  /v1/user/update-using:
-    put:
-      summary: Contract Vehicle Using Update API
-      operationId: updateUsing
-      responses:
-        '200':
-          description: OK
-      description: 契約利用開始
-      tags:
-        - UserContract
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./schemas/contract/user/UpdateContractUsingCommand.yaml
   '/user/maintenance/{contractId}':
     parameters:
       - schema:
@@ -193,6 +177,49 @@ paths:
             application/json:
               schema:
                 $ref: ./schemas/contract/user/ContractMaintenaceDetailsResource.yaml
+  /v1/user/start-using:
+    put:
+      summary: ''
+      operationId: upateStartUsing
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/contract/user/UpdateStartUsingCommand.yaml
+      tags:
+        - UserContract
+  /v1/admin/update-contract-info:
+    put:
+      summary: ''
+      operationId: updateContractInfo
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/contract/user/UpdateContractInfoCommand.yaml
+      tags:
+        - AdminContract
+  /v1/admin/update-using-info:
+    put:
+      summary: ''
+      operationId: updateUsingInfo
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/contract/user/UpdateUsingInfoCommand.yaml
+        description: ''
+      tags:
+        - AdminContract
 components:
   schemas: {}
   parameters:
