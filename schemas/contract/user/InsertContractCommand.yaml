@@ -1,39 +1,82 @@
-title: InsertContractCommand
+description: ''
 type: object
-description: 契約申込データ
+x-examples:
+  example-1:
+    applicationId: 123
+    monthly:
+      brandCode: '001'
+      cardNumber: '123456789012345'
+      holderName: YANG GAO
+      expire: 08/21
+      securityCode: 123
+    application:
+      brandCode: '001'
+      cardNumber: '123456789012345'
+      holderName: YANG GAO
+      expire: 08/21
+      securityCode: 123
+    token: Hshdk33443kjhk
 properties:
   applicationId:
-    type: integer
     description: 申込ID
-  brandCode:
-    type: string
-    minLength: 0
-    maxLength: 4
-    description: |-
-      カード会社
-      Visa("001")
-      MasterCard("002")
-      JCB("003")
-      AmericanExpress("004")
-      DinersClub("005")
-  cardNumber:
-    type: string
-    minLength: 0
-    maxLength: 16
-    description: カード番号
-  holderName:
-    type: string
-    description: カード名義人
-  expire:
-    type: string
-    description: 有効期限
+    type: integer
+  monthly:
+    type: object
+    required:
+      - brandCode
+      - cardNumber
+      - holderName
+      - expire
+      - securityCode
+    properties:
+      brandCode:
+        type: string
+        description: カード会社
+      cardNumber:
+        type: string
+        minLength: 15
+        maxLength: 15
+        description: カード番号
+      holderName:
+        type: string
+        description: カード名義人
+      expire:
+        type: string
+        description: 有効期限
+      securityCode:
+        type: integer
+        description: セキュリティコード
+  application:
+    type: object
+    required:
+      - brandCode
+      - cardNumber
+      - holderName
+      - expire
+      - securityCode
+    properties:
+      brandCode:
+        type: string
+        description: カード会社
+      cardNumber:
+        type: string
+        minLength: 15
+        maxLength: 15
+        description: カード番号
+      holderName:
+        type: string
+        description: カード名義人
+      expire:
+        type: string
+        description: 有効期限
+      securityCode:
+        type: integer
+        description: セキュリティコード
   token:
     type: string
-    description: トークン
+    description: GMO APIアクセストークン
 required:
   - applicationId
-  - brandCode
-  - cardNumber
-  - holderName
-  - expire
+  - monthly
+  - application
   - token
