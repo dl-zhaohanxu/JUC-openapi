@@ -1,0 +1,26 @@
+title: CardInfo
+type: object
+properties:
+  brandCode:
+    type: string
+    description: カード会社
+  cardNumber:
+    type: string
+    minLength: 15
+    maxLength: 15
+    description: カード番号
+  holderName:
+    type: string
+    description: カード名義人
+  expire:
+    type: string
+    description: 有効期限
+  securityCode:
+    type: integer
+    description: セキュリティコード
+required:
+  - brandCode
+  - cardNumber
+  - holderName
+  - expire
+  - securityCode

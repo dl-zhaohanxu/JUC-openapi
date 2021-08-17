@@ -21,57 +21,9 @@ properties:
     description: 申込ID
     type: integer
   monthly:
-    type: object
-    required:
-      - brandCode
-      - cardNumber
-      - holderName
-      - expire
-      - securityCode
-    properties:
-      brandCode:
-        type: string
-        description: カード会社
-      cardNumber:
-        type: string
-        minLength: 15
-        maxLength: 15
-        description: カード番号
-      holderName:
-        type: string
-        description: カード名義人
-      expire:
-        type: string
-        description: 有効期限
-      securityCode:
-        type: integer
-        description: セキュリティコード
+    $ref: ./CardInfo.yaml
   application:
-    type: object
-    required:
-      - brandCode
-      - cardNumber
-      - holderName
-      - expire
-      - securityCode
-    properties:
-      brandCode:
-        type: string
-        description: カード会社
-      cardNumber:
-        type: string
-        minLength: 15
-        maxLength: 15
-        description: カード番号
-      holderName:
-        type: string
-        description: カード名義人
-      expire:
-        type: string
-        description: 有効期限
-      securityCode:
-        type: integer
-        description: セキュリティコード
+    $ref: ./CardInfo.yaml
   token:
     type: string
     description: GMO APIアクセストークン
