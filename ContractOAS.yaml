@@ -82,7 +82,7 @@ paths:
           application/json:
             schema:
               $ref: ./schemas/application/user/UpdateDealerCommand.yaml
-  /v1/admin/approve-dealer:
+  /v1/admin/update-change-dealer-status:
     put:
       summary: Contract Dealer Update Apply API
       operationId: updateApproveDealer
@@ -98,13 +98,13 @@ paths:
               $ref: ./schemas/contract/admin/UpdateApplayDealerCommand.yaml
       tags:
         - AdminContract
+    parameters: []
   '/v1/user/payment/{contractId}':
     parameters:
       - schema:
           type: integer
         name: contractId
         in: path
-        required: true
         description: ' 契約ID'
     put:
       summary: ''
