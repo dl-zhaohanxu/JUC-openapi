@@ -10,6 +10,8 @@ properties:
     properties:
       contractAdminNumber:
         type: string
+        minLength: 15
+        maxLength: 15
       contractStatus:
         type: string
       contractStartDate:
