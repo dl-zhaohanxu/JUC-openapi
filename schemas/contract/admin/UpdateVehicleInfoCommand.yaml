@@ -12,7 +12,7 @@ properties:
         type: string
       contractStatus:
         type: string
-      contractDate:
+      contractStartDate:
         type: string
         format: date
       expirationDate:
