@@ -155,7 +155,7 @@ paths:
       operationId: findContracts
       description: 契約検索
       parameters: []
-  '/user/maintenance/{contractId}':
+  '/user/contracts/{contractId}/maintenances/{maintenanceId}':
     parameters:
       - schema:
           type: integer
@@ -163,6 +163,11 @@ paths:
         in: path
         required: true
         description: 契約ID
+      - schema:
+          type: integer
+        name: maintenanceId
+        in: path
+        description: メンテナンスID
     get:
       summary: Contract Maintenance Detail API
       tags:
@@ -176,7 +181,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ./schemas/contract/user/ContractMaintenaceDetailsResource.yaml
+                $ref: ./schemas/contract/user/MaintenanceListResource.yaml
   /v1/user/start-using:
     put:
       summary: ''

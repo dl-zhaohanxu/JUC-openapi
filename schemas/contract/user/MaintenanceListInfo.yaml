@@ -1,0 +1,48 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    maintenanceId: 1
+    contractUpdateMaintenanceDate: '2022-01-01'
+    contractUpdateMaintenanceDateLabel: 1ヶ月（点検）
+    maintenanceDealerCode: dc001
+    maintenanceDealerName: dn001
+    maintenanceStoreCode: sc001
+    maintenanceStoreName: sn001
+properties:
+  maintenanceId:
+    type: integer
+    description: メンテナンスID
+  contractUpdateMaintenanceDate:
+    type: string
+    minLength: 1
+    format: date
+    description: 契約更新保守日
+  contractUpdateMaintenanceDateLabel:
+    type: string
+    minLength: 1
+    description: '契約更新保守日ラベル:契約の場合は、1回目等の名称'
+  maintenanceDealerCode:
+    type: string
+    minLength: 1
+    description: 保守販売店コード
+  maintenanceDealerName:
+    type: string
+    minLength: 1
+    description: 保守販売店名
+  maintenanceStoreCode:
+    type: string
+    minLength: 1
+    description: 保守店舗コード
+  maintenanceStoreName:
+    type: string
+    minLength: 1
+    description: 保守店舗名
+required:
+  - maintenanceId
+  - contractUpdateMaintenanceDate
+  - contractUpdateMaintenanceDateLabel
+  - maintenanceDealerCode
+  - maintenanceDealerName
+  - maintenanceStoreCode
+  - maintenanceStoreName

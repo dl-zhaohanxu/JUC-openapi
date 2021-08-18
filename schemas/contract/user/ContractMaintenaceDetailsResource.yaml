@@ -1,7 +1,0 @@
-title: ContractMaintenaceDetailsResource
-type: object
-properties:
-  maintenanceList:
-    type: array
-    items:
-      $ref: ../../common/Maintenance.yaml
