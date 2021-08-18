@@ -7,6 +7,11 @@ properties:
     description: 契約ID
   contract:
     type: object
+    required:
+      - contractAdminNumber
+      - contractStatus
+      - contractStartDate
+      - expirationDate
     properties:
       contractAdminNumber:
         type: string
@@ -28,3 +33,6 @@ properties:
     format: date
 required:
   - contractId
+  - contract
+  - paymentStartDate
+  - carDeliveryExpectedDate
