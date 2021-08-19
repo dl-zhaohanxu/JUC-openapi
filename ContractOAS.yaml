@@ -17,23 +17,6 @@ servers:
       basePath:
         default: contract
 paths:
-  /v1/user/contract:
-    post:
-      summary: Contract Register API
-      operationId: insertContracts
-      responses:
-        '200':
-          description: OK
-      description: 契約申込
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./schemas/contract/user/InsertContractCommand.yaml
-        description: ''
-      tags:
-        - UserContract
   /v1/admin/update-commission:
     put:
       summary: Contract Commission Update API
@@ -155,6 +138,18 @@ paths:
       operationId: findContracts
       description: 契約検索
       parameters: []
+    post:
+      summary: ''
+      operationId: insertContract
+      responses:
+        '200':
+          description: OK
+      description: 契約申込
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/contract/user/InsertContractCommand.yaml
   '/user/contracts/{contractId}/maintenances/{maintenanceId}':
     parameters:
       - schema:
