@@ -150,6 +150,8 @@ paths:
           application/json:
             schema:
               $ref: ./schemas/contract/user/InsertContractCommand.yaml
+      tags:
+        - UserContract
   '/user/contracts/{contractId}/maintenances/{maintenanceId}':
     parameters:
       - schema:
