@@ -1,4 +1,4 @@
-title: UpdateApplayDealer
+title: UpdateDealerStatus
 type: object
 properties:
   dealerChangeRequestId:

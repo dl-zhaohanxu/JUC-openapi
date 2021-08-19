@@ -32,3 +32,4 @@ required:
   - monthly
   - application
   - token
+title: InsertContractCommand

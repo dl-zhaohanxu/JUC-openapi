@@ -1,4 +1,4 @@
-title: Update
+title: UpdateContractInfoCommand
 type: object
 properties:
   contractId:

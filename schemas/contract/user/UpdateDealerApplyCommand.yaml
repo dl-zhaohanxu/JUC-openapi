@@ -1,4 +1,4 @@
-title: UpdateDealerCommand
+title: UpdateDealerApplyCommand
 type: object
 properties:
   requestId:
@@ -28,3 +28,4 @@ properties:
 required:
   - requestId
   - contractId
+description: ''
