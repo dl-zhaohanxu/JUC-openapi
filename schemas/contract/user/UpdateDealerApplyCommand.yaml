@@ -18,3 +18,5 @@ properties:
 required:
   - requestDealerId
   - contractId
+  - dealerChangeReason
+  - dealerChangeReasonOther
