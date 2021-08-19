@@ -24,8 +24,6 @@ paths:
       responses:
         '200':
           description: OK
-      tags:
-        - UserContract
       description: 契約自賠責発行情報更新
       parameters: []
       requestBody:
@@ -33,6 +31,8 @@ paths:
           application/json:
             schema:
               $ref: ./schemas/contract/admin/UpdateCommissionCommand.yaml
+      tags:
+        - AdminContract
   /v1/admin/update-vehicle-info:
     put:
       summary: Contract Vehicle Info Update API
