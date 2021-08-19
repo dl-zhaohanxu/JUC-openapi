@@ -52,7 +52,7 @@ paths:
   /v1/user/update-dealer:
     post:
       summary: Contract Dealer Update Apply API
-      operationId: updateDealer
+      operationId: updateDealerApply
       responses:
         '200':
           description: OK
@@ -68,7 +68,7 @@ paths:
   /v1/admin/update-change-dealer-status:
     put:
       summary: Contract Dealer Update Apply API
-      operationId: updateApproveDealer
+      operationId: updateDealerStatus
       responses:
         '200':
           description: OK
