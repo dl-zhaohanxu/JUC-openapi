@@ -6,8 +6,8 @@ properties:
     description: カード会社
   cardNumber:
     type: string
-    minLength: 15
-    maxLength: 15
+    minLength: 16
+    maxLength: 16
     description: カード番号
   holderName:
     type: string
