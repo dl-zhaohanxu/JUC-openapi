@@ -10,7 +10,7 @@ properties:
     type: integer
     description: 契約ID
   dealerChangeReason:
-    type: string
+    type: integer
     description: 販売店変更理由
   dealerChangeReasonOther:
     type: string
