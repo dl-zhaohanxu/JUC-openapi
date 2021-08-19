@@ -1,31 +1,20 @@
 title: UpdateDealerApplyCommand
 type: object
+description: ''
 properties:
-  requestId:
+  requestDealerId:
     type: string
     description: |
       申請ID
   contractId:
     type: integer
     description: 契約ID
-  dealerCode:
+  dealerChangeReason:
     type: string
-    description: 販売店コード
-  status:
+    description: 販売店変更理由
+  dealerChangeReasonOther:
     type: string
-    description: 申請ステータス
-  staff:
-    type: string
-    description: 店舗担当者
-  requestDate:
-    type: string
-    description: 申請日
-  updateDate:
-    type: string
-    description: 更新日
-  '':
-    type: string
+    description: 販売店変更理由その他
 required:
-  - requestId
+  - requestDealerId
   - contractId
-description: ''
