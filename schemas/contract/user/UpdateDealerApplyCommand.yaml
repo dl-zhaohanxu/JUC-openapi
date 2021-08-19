@@ -3,7 +3,7 @@ type: object
 description: ''
 properties:
   requestDealerId:
-    type: string
+    type: integer
     description: |
       申請ID
   contractId:
