@@ -64,7 +64,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: ./schemas/application/user/UpdateDealerCommand.yaml
+              $ref: ./schemas/contract/user/UpdateDealerApplyCommand.yaml
   /v1/admin/update-change-dealer-status:
     put:
       summary: Contract Dealer Update Apply API
@@ -78,7 +78,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: ./schemas/contract/admin/UpdateApplayDealerCommand.yaml
+              $ref: ./schemas/contract/admin/UpdateDealerStatusCommand.yaml
       tags:
         - AdminContract
     parameters: []
@@ -89,6 +89,7 @@ paths:
         name: contractId
         in: path
         description: ' 契約ID'
+        required: true
     put:
       summary: ''
       operationId: getContractPaymentDetail
@@ -165,6 +166,7 @@ paths:
         name: maintenanceId
         in: path
         description: メンテナンスID
+        required: true
     get:
       summary: Contract Maintenance Detail API
       tags:
