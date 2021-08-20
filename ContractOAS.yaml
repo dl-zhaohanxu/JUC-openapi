@@ -153,7 +153,7 @@ paths:
               $ref: ./schemas/contract/user/InsertContractCommand.yaml
       tags:
         - UserContract
-  '/user/contracts/{contractId}/maintenances/{maintenanceId}':
+  '/user/contracts/{contractId}/maintenances':
     parameters:
       - schema:
           type: integer
@@ -161,12 +161,6 @@ paths:
         in: path
         required: true
         description: 契約ID
-      - schema:
-          type: integer
-        name: maintenanceId
-        in: path
-        description: メンテナンスID
-        required: true
     get:
       summary: Contract Maintenance Detail API
       tags:
