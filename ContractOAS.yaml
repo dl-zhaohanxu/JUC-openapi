@@ -181,20 +181,23 @@ paths:
             application/json:
               schema:
                 $ref: ./schemas/contract/user/MaintenanceListResource.yaml
-  /v1/user/start-using:
+  '/v1/user/contracts/{contractId}/confirm':
     put:
       summary: ''
       operationId: updateStartUsing
       responses:
         '200':
           description: OK
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./schemas/contract/user/UpdateStartUsingCommand.yaml
       tags:
         - UserContract
+      description: 契約更新(利用開始)
+    parameters:
+      - schema:
+          type: integer
+        name: contractId
+        in: path
+        required: true
+        description: 契約ID
   /v1/admin/update-contract-info:
     put:
       summary: ''

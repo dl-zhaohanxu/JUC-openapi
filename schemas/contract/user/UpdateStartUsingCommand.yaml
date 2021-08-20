@@ -1,8 +1,0 @@
-title: UpdateContractUsingCommand
-type: object
-properties:
-  contractId:
-    type: integer
-    description: 契約ID
-required:
-  - contractId
