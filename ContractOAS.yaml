@@ -102,6 +102,8 @@ paths:
               schema:
                 $ref: ./schemas/contract/user/ContractPaymentDetailResource.yaml
       description: 契約支払詳細
+      tags:
+        - UserContract
   '/v1/user/contracts/{contractId}':
     parameters:
       - schema:
