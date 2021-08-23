@@ -154,7 +154,7 @@ paths:
               $ref: ./schemas/contract/user/InsertContractCommand.yaml
       tags:
         - UserContract
-  '/user/contracts/{contractId}/maintenances':
+  '/v1/user/contracts/{contractId}/maintenances':
     parameters:
       - schema:
           type: integer
