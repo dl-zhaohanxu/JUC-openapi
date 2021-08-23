@@ -25,16 +25,11 @@ x-examples:
     purchaseMaintainerCode: ABC
     purchaseMaintainerName: XX
     purchaseMaintenanceStoreCode: ABC
+title: ContractDetailResource
 properties:
   contractId:
     type: integer
     description: 契約ID
-  applicationId:
-    type: integer
-    description: 申込ID
-  memberId:
-    type: string
-    description: メンバーID
   productId:
     type: integer
     description: 物件ID
@@ -107,4 +102,3 @@ properties:
   purchaseMaintenanceStoreCode:
     type: string
     description: 購入時保守販売店店舗コード
-title: ContractDetailResource

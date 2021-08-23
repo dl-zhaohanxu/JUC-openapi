@@ -82,7 +82,7 @@ paths:
       tags:
         - AdminContract
     parameters: []
-  '/v1/user/payment/{contractId}':
+  '/v1/user/contracts/{contractId}/payments':
     parameters:
       - schema:
           type: integer
