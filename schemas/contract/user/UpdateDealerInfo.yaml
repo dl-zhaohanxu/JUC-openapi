@@ -1,22 +1,15 @@
-title: UpdateDealerApplyCommand
+title: UpdatedeteDealerInfo
 type: object
-description: ''
 properties:
   requestDealerId:
     type: integer
-    description: |
-      申請ID
-  contractId:
-    type: integer
-    description: 契約ID
+    description: 販売店ID
   dealerChangeReason:
-    type: integer
     description: 販売店変更理由
+    type: integer
   dealerChangeReasonOther:
     type: string
     description: 販売店変更理由その他
 required:
   - requestDealerId
-  - contractId
   - dealerChangeReason
-  - dealerChangeReasonOther

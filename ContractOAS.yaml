@@ -49,10 +49,10 @@ paths:
               $ref: ./schemas/contract/admin/UpdateVehicleInfoCommand.yaml
       tags:
         - AdminContract
-  /v1/user/update-dealer:
+  /v1/user/dealer-change-request:
     post:
       summary: Contract Dealer Update Apply API
-      operationId: updateDealerApply
+      operationId: updateDealer
       responses:
         '200':
           description: OK
@@ -64,7 +64,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: ./schemas/contract/user/UpdateDealerApplyCommand.yaml
+              $ref: ./schemas/contract/user/UpdateDealerCommand.yaml
+    parameters: []
   /v1/admin/update-change-dealer-status:
     put:
       summary: Contract Dealer Update Apply API
@@ -204,21 +205,6 @@ paths:
           application/json:
             schema:
               $ref: ./schemas/contract/user/UpdateContractInfoCommand.yaml
-      tags:
-        - AdminContract
-  /v1/admin/update-using-info:
-    put:
-      summary: ''
-      operationId: updateUsingInfo
-      responses:
-        '200':
-          description: OK
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./schemas/contract/user/UpdateUsingInfoCommand.yaml
-        description: ''
       tags:
         - AdminContract
 components:

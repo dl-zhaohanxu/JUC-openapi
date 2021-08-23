@@ -1,8 +1,6 @@
-title: UpdateUsingInfo
+title: UpdateUsingLocationInfo
 type: object
 properties:
-  contractId:
-    type: integer
   postCode:
     type: string
   prefecture:
@@ -16,7 +14,6 @@ properties:
   addressKana:
     type: string
 required:
-  - contractId
   - postCode
   - prefecture
   - city
