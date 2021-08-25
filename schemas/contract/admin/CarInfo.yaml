@@ -1,0 +1,20 @@
+title: CarInfo
+type: object
+properties:
+  contractStartDate:
+    type: string
+    format: date
+    description: 契約開始日
+  expirationDate:
+    type: string
+    format: date
+    description: 契約満了日
+  paymentStartDate:
+    type: string
+    format: date
+    description: 支払開始日
+  carDeliveryExpectedDate:
+    type: string
+    format: date
+    description: 納車予定日
+description: 車両登録情報

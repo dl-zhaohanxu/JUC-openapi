@@ -1,0 +1,22 @@
+title: UsingInfo
+type: object
+properties:
+  postCode:
+    type: string
+    description: 使用場所郵便番号
+  prefecture:
+    type: integer
+    description: 使用場所都道府県
+  city:
+    type: string
+    description: 使用場所市区郡町村
+  cityKana:
+    type: string
+    description: 使用場所市区郡町村カナ
+  address:
+    type: string
+    description: 使用場所丁目・番地
+  addressKana:
+    type: string
+    description: 使用場所丁目・番地カナ
+description: 使用場所

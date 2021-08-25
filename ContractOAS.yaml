@@ -207,6 +207,27 @@ paths:
               $ref: ./schemas/contract/user/UpdateContractInfoCommand.yaml
       tags:
         - AdminContract
+  '/v1/admin/update-contract/{contractId}':
+    parameters:
+      - schema:
+          type: string
+        name: contractId
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: updateContract
+      responses:
+        '200':
+          description: OK
+      description: 契約更新APIです。
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/contract/admin/UpdateContractCommand.yaml
+      tags:
+        - AdminContract
 components:
   schemas: {}
   parameters:

@@ -1,0 +1,12 @@
+title: UpdateContractCommand
+type: object
+properties:
+  serialNumber:
+    type: string
+    description: 車台番号(自賠責)
+  carInfo:
+    $ref: ./CarInfo.yaml
+  contractInfo:
+    $ref: ./ContractInfo.yaml
+  usingInfo:
+    $ref: ./UsingInfo.yaml
