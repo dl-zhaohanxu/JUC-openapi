@@ -210,7 +210,7 @@ paths:
   '/v1/admin/update-contract/{contractId}':
     parameters:
       - schema:
-          type: string
+          type: integer
         name: contractId
         in: path
         required: true
