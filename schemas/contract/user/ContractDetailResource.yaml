@@ -1,4 +1,4 @@
-description: ''
+description: 契約詳細
 type: object
 x-examples:
   example-1:
@@ -33,6 +33,46 @@ properties:
   productId:
     type: integer
     description: 物件ID
+  contractAdminNumber:
+    type: string
+    description: 契約管理番号(TFC設定項目)
+  carSerialNumber:
+    type: string
+    description: 車台番号
+  contractStatus:
+    type: string
+    description: 契約ステータス
+  contractStatusUpdateDatetime:
+    type: string
+    format: date-time
+    description: 契約ステータス更新日時
+  contractDatetime:
+    type: string
+    format: date-time
+    description: 契約日時/契約開始日
+  contractStartDate:
+    type: string
+    format: date
+    description: 契約開始日
+  expirationDate:
+    type: string
+    format: date
+    description: 契約満了日
+  carDeliveryStatus:
+    type: string
+    description: 納車処理ステータス
+  carDeliveryStatusUpdateDate:
+    type: string
+    format: date
+    description: 納車予定日
+  carDeliverExpectedDate:
+    type: string
+    format: date
+    description: 納車予定日
+  carDeliveryRegistrationDatetime:
+    type: string
+    format: date-time
+    description: 納車登録日時
   monthlyFee:
     type: integer
     description: 月額利用料
