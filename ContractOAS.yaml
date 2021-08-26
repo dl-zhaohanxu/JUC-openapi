@@ -214,6 +214,7 @@ paths:
         name: contractId
         in: path
         required: true
+        description: 契約ID
     put:
       summary: ''
       operationId: updateContract
