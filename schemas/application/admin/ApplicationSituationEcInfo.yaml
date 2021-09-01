@@ -65,3 +65,4 @@ properties:
   follow_mail_flag:
     type: boolean
     description: フォローメール送信フラグ
+description: 申込詳細

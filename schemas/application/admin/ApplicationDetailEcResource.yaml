@@ -1,6 +1,6 @@
 title: ApplicationDetailEcResource
 type: object
-description: ''
+description: 申込詳細
 properties:
   application:
     $ref: ./ApplicationEcInfo.yaml
