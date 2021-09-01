@@ -3,6 +3,6 @@ type: object
 description: ''
 properties:
   application:
-    $ref: ./ApplicationInfo.yaml
+    $ref: ./ApplicationEcInfo.yaml
   applicationSituation:
-    $ref: ./ApplicationSituationInfo.yaml
+    $ref: ./ApplicationSituationEcInfo.yaml
