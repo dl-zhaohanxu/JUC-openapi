@@ -136,14 +136,22 @@ paths:
   '/v1/user/applications/{applicationId}/for-ec':
     parameters:
       - schema:
-          type: string
+          type: integer
         name: applicationId
         in: path
         required: true
+        description: 申込ID
     get:
       summary: Your GET endpoint
-      tags: []
-      responses: {}
+      tags:
+        - AdminApplication
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/application/admin/ApplicationDetailEcResiurce.yaml
       operationId: getApplicationDetailForEc
       description: Ec申込詳細取得API
 components:
