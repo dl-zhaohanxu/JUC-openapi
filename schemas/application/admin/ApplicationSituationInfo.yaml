@@ -1,0 +1,67 @@
+title: ApplicationSituationInfo
+type: object
+properties:
+  application_id:
+    type: integer
+    description: 申込ID
+  contract_number:
+    type: integer
+    description: 契約管理番号(TFC設定項目)
+  contract_status:
+    type: string
+    description: 契約ステータス
+  contract_status_update_datetime:
+    type: string
+    format: date-time
+    description: 契約ステータス更新日
+  agreement_datetime:
+    type: string
+    format: date-time
+    description: 申込規約同意日時
+  identification_datetime:
+    type: string
+    format: date-time
+    description: 本人確認日時
+  identification_result:
+    type: integer
+    description: '本人確認結果:0:不一致 1:一致'
+  identification_place:
+    type: integer
+    description: '確認場所:0：店舗1：自宅  2：その他'
+  identification_result_other:
+    type: string
+    description: 本人確認その他確認
+  identification_staff_last_name:
+    type: string
+    description: 本人確認担当者姓
+  identification_staff_first_name:
+    type: string
+    description: 本人確認担当者名
+  credit_entry_datetime:
+    type: string
+    format: date-time
+    description: 与信審査申込日時
+  credit_result:
+    type: integer
+    description: '与信結果:0:NG 1:OK'
+  credit_date:
+    type: string
+    format: date
+    description: 与信結果確定日
+  credit_expire_date:
+    type: string
+    format: date
+    description: 与信結果有効期限
+  contract_entry_datetime:
+    type: string
+    format: date-time
+    description: 本契約申込日時(契約日)
+  reason_for_difference:
+    type: string
+    description: 差異理由
+  jpass_comment:
+    type: string
+    description: J-Pass連携コメント
+  follow_mail_flag:
+    type: boolean
+    description: フォローメール送信フラグ

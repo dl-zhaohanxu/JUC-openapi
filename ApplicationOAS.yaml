@@ -151,7 +151,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ./schemas/application/admin/ApplicationDetailEcResiurce.yaml
+                $ref: ./schemas/application/admin/ApplicationDteailEcResource.yaml
       operationId: getApplicationDetailForEc
       description: Ec申込詳細取得API
 components:

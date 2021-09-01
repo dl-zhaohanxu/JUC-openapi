@@ -1,0 +1,8 @@
+title: ApplicationDetailEcResource
+type: object
+properties:
+  application:
+    $ref: ./ApplicationInfo.yaml
+  applicationSituation:
+    $ref: ./ApplicationDteailEcResource.yaml
+description: ''
