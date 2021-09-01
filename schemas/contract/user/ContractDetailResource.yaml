@@ -142,3 +142,35 @@ properties:
   purchaseMaintenanceStoreCode:
     type: string
     description: 購入時保守販売店店舗コード
+  postcode:
+    description: 保管場所郵便番号
+    type: string
+  prefecture:
+    description: 保管場所都道府県
+    type: integer
+  city:
+    type: string
+    description: 保管場所市区郡町村
+  address:
+    type: string
+    description: 保管場所丁目・番地
+  cityKana:
+    type: string
+    description: 保管場所市区郡町村カナ
+  addressKana:
+    type: string
+    description: 保管場所丁目・番地カナ
+  orderContract:
+    type: integer
+    description: |-
+      注文契約:
+      1:注文情報
+      2:契約情報
+  orderContractId:
+    type: integer
+  orderContractPlanDetailId:
+    type: integer
+  orderContractPlanDetail:
+    type: integer
+  bplatsProductType:
+    type: integer

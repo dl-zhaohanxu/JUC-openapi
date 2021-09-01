@@ -133,6 +133,19 @@ paths:
         name: applicationId
         in: path
         required: true
+  '/v1/user/applications/{applicationId}/for-ec':
+    parameters:
+      - schema:
+          type: string
+        name: applicationId
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: getApplicationDetailForEc
+      description: Ec申込詳細取得API
 components:
   parameters:
     Content-Type:
