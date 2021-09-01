@@ -35,10 +35,11 @@ paths:
               $ref: ./schemas/contract/user/DealerChangeCommand.yaml
     parameters:
       - schema:
-          type: string
+          type: integer
         name: contractId
         in: path
         required: true
+        description: 契約ID
   '/v1/admin/contracts/{contractId}/dealers/{dealerChangeRequestId}':
     put:
       summary: Contract Dealer Update Apply API
@@ -178,7 +179,7 @@ paths:
         in: path
         required: true
         description: 契約ID
-  '/v1/admin/update-contract/{contractId}':
+  '/v1/admin/contracts/{contractId}':
     parameters:
       - schema:
           type: integer
