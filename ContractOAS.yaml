@@ -57,13 +57,13 @@ paths:
         - AdminContract
     parameters:
       - schema:
-          type: string
+          type: integer
         name: contractId
         in: path
         required: true
         description: 契約ID
       - schema:
-          type: string
+          type: integer
         name: dealerChangeRequestId
         in: path
         required: true
