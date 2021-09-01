@@ -1,9 +1,6 @@
 title: UpdateDealerStatus
 type: object
 properties:
-  dealerChangeRequestId:
-    type: integer
-    description: 販売店変更申請ID
   changeStatus:
     description: "受付ステータス\t\n1:受付中\n2:対応中\n3:完了\n4:不可\n9:受付取消"
     type: integer

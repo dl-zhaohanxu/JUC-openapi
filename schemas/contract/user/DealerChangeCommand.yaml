@@ -2,14 +2,10 @@ title: UpdateDealerCommand
 type: object
 description: ''
 properties:
-  contractId:
-    type: integer
-    description: 契約ID
   updateDealer:
     $ref: ./UpdateDealerInfo.yaml
   updateUsingLocation:
     $ref: ./UpdateUsingLocationInfo.yaml
 required:
-  - contractId
   - updateDealer
   - updateUsingLocation

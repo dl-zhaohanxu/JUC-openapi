@@ -17,42 +17,10 @@ servers:
       basePath:
         default: contract
 paths:
-  /v1/admin/update-commission:
-    put:
-      summary: Contract Commission Update API
-      operationId: updateCommission
-      responses:
-        '200':
-          description: OK
-      description: 契約自賠責発行情報更新
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./schemas/contract/admin/UpdateCommissionCommand.yaml
-      tags:
-        - AdminContract
-  /v1/admin/update-vehicle-info:
-    put:
-      summary: Contract Vehicle Info Update API
-      operationId: updateVehicleInfo
-      responses:
-        '200':
-          description: OK
-      description: 契約車両登録情報更新
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./schemas/contract/admin/UpdateVehicleInfoCommand.yaml
-      tags:
-        - AdminContract
-  /v1/user/dealer-change-request:
+  '/v1/user/contracts/{contractId}/dealers':
     post:
       summary: Contract Dealer Update Apply API
-      operationId: updateDealer
+      operationId: dealerChange
       responses:
         '200':
           description: OK
@@ -64,9 +32,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: ./schemas/contract/user/UpdateDealerCommand.yaml
-    parameters: []
-  /v1/admin/update-change-dealer-status:
+              $ref: ./schemas/contract/user/DealerChangeCommand.yaml
+    parameters:
+      - schema:
+          type: string
+        name: contractId
+        in: path
+        required: true
+  '/v1/admin/contracts/{contractId}/dealers/{dealerChangeRequestId}':
     put:
       summary: Contract Dealer Update Apply API
       operationId: updateDealerStatus
@@ -82,7 +55,19 @@ paths:
               $ref: ./schemas/contract/admin/UpdateDealerStatusCommand.yaml
       tags:
         - AdminContract
-    parameters: []
+    parameters:
+      - schema:
+          type: string
+        name: contractId
+        in: path
+        required: true
+        description: 契約ID
+      - schema:
+          type: string
+        name: dealerChangeRequestId
+        in: path
+        required: true
+        description: 販売店変更申請ID
   '/v1/user/contracts/{contractId}/payments':
     parameters:
       - schema:
@@ -193,20 +178,6 @@ paths:
         in: path
         required: true
         description: 契約ID
-  /v1/admin/update-contract-info:
-    put:
-      summary: ''
-      operationId: updateContractInfo
-      responses:
-        '200':
-          description: OK
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./schemas/contract/user/UpdateContractInfoCommand.yaml
-      tags:
-        - AdminContract
   '/v1/admin/update-contract/{contractId}':
     parameters:
       - schema:

@@ -145,6 +145,8 @@ paths:
       summary: Your GET endpoint
       tags:
         - AdminApplication
+      x-annotations: 
+        - type: com.kinto.global.common.auth.IgnoreIdTokenObtaining
       responses:
         '200':
           description: OK
