@@ -151,26 +151,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ./schemas/application/admin/ApplicationDteailEcResource.yaml
+                $ref: ./schemas/application/admin/ApplicationDetailEcResource.yaml
       operationId: getApplicationDetailForEc
       description: Ec申込詳細取得API
 components:
-  parameters:
-    Content-Type:
-      name: Content-Type
-      in: header
-      required: false
-      schema:
-        type: string
-        default: application/json; charset=UTF-8
-      description: HTTPコンテンツ・タイプ
-    Authorization:
-      name: Authorization
-      in: header
-      required: false
-      schema:
-        type: string
-      description: Bearerトークン
+  parameters: {}
   schemas: {}
   responses: {}
 tags:
