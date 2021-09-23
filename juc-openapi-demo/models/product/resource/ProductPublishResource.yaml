@@ -1,0 +1,7 @@
+title: ProductPublishResource
+type: object
+properties:
+  productIds:
+    type: array
+    items:
+      type: integer

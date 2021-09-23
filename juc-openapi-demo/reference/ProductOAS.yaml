@@ -1,0 +1,255 @@
+openapi: 3.0.3
+info:
+  title: Product
+  version: '1.0'
+  description: "\t\n物件一覧画面を開く場合、本APIを呼出す。\n異なるページから物件の検索条件が違うことより、物件の全対象、登録対象、掲載対象のデータを区分する。"
+servers:
+  - url: 'https://www.offkinto.com'
+paths:
+  '/product/v1/system/products/{vehicleId}':
+    parameters:
+      - schema:
+          type: integer
+        name: vehicleId
+        in: path
+        required: true
+        description: 車両ID
+    post:
+      summary: ''
+      operationId: findProductById
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+      description: 仕分けの結果より、「物件」の場合、本APIを呼出し、物件サービスの該当DBテーブルにデータをついかする。
+      tags:
+        - SystemProduct
+  '/product/v1/admin/products/{productId}':
+    parameters:
+      - schema:
+          type: string
+        name: productId
+        in: path
+        required: true
+        description: 物件番号
+    get:
+      summary: Your GET endpoint
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/product/resource/ProductDetailResource.yaml
+      operationId: getProduct
+      description: 物件の詳細画面を開く場合、本APIを呼び出す。
+      tags:
+        - AdminProduct
+    put:
+      summary: ''
+      operationId: updateProduct
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+      description: 物件の更新画面の「更新」をクリックする場合、本APIを呼出す。
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/product/command/UpdateProductCommand.yaml
+      tags:
+        - AdminProduct
+  /product/v1/admin/products/preview:
+    post:
+      summary: ''
+      operationId: insertProductPreview
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+      description: 物件の編集画面に「ECサイトプレビュー」をクリックした場合、本APIを呼出す。
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/product/command/InsertProductPreviewCommand.yaml
+      tags:
+        - AdminProduct
+  '/product/v1/system/products/preview/{productPreviewId}':
+    parameters:
+      - schema:
+          type: string
+        name: productPreviewId
+        in: path
+        required: true
+        description: プレビュー番号
+    get:
+      summary: Your GET endpoint
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/product/resource/ProductPreviewDetailResource.yaml
+      operationId: getProductPreview
+      description: ECサイドのpreview画面を開く際に、本APIを呼出し、previewの情報をECサイドにresponseする。
+      tags:
+        - SystemProduct
+  /product/v1/admin/products:
+    post:
+      summary: ''
+      operationId: findProduct
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/product/resource/ProductSearchResource.yaml
+      description: |-
+        物件一覧画面を開く場合、本APIを呼出す。
+        異なるページから物件の検索条件が違うことより、物件の全対象、登録対象、掲載対象のデータを区分する。
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/product/query/ProductSearchQuery.yaml
+        description: ''
+      tags:
+        - AdminProduct
+  /product/v1/admin/products/bulk-publish:
+    put:
+      summary: ''
+      operationId: publishProduct
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/product/resource/ProductPublishResource.yaml
+      description: |-
+        物件情報一覧画面の「一括掲載」或いは「一括非掲載」ボタンをクリックする場合、本APIを呼出す。
+        物件掲載状態を纏めて更新する。
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/product/command/UpdateProductPublishCommand.yaml
+      tags:
+        - AdminProduct
+  /product/v1/admin/products/file:
+    get:
+      summary: Your GET endpoint
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      operationId: downloadProduct
+      description: 物件一覧画面の「Download」ボタンをクリックする場合、本APIを呼出す。異なるページから物件の検索条件が違うことより、物件の全対象、登録対象、掲載対象のCSVデータのダウンロードファイルを区分する。
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: isPublished
+          description: 掲載フラグ
+        - schema:
+            type: string
+          in: query
+          name: vin
+          description: 車台番号
+        - schema:
+            type: string
+          in: query
+          name: vehicleRegisterNumberArea
+          description: 自動車登録番号（地域）
+        - schema:
+            type: string
+          in: query
+          name: vehicleRegisterNumberClass
+          description: 自動車登録番号（分類番号）
+        - schema:
+            type: string
+          in: query
+          name: vehicleRegisterNumberKana
+          description: 自動車登録番号（ひらがな）
+        - schema:
+            type: string
+          in: query
+          name: vehicleRegisterNumberSpecified
+          description: 自動車登録番号（指定番号）
+        - schema:
+            type: integer
+          in: query
+          name: productStatus
+          description: 物件ステータス
+        - schema:
+            type: string
+          in: query
+          name: modelName
+          description: 車種名
+        - schema:
+            type: string
+          in: query
+          name: gradeName
+          description: グレード名
+        - schema:
+            type: string
+            format: date
+          in: query
+          name: publishStartDate
+          description: 掲載開始日
+        - schema:
+            type: string
+            format: date
+          in: query
+          name: publishEndDate
+          description: 掲載終了日
+      tags:
+        - AdminProduct
+  '/product/v1/system/products/{productsId}/status':
+    parameters:
+      - schema:
+          type: string
+        name: productsId
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: updateProductStatus
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/product/resource/ProductStatusResource.yaml
+      description: FE側の詳細画面向けのAPIです。指定条件により一つ物件詳細情報だけを取得します。
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/product/command/UpdateProductStatusCommand.yaml
+      tags:
+        - SystemProduct
+components:
+  schemas: {}
+  parameters: {}
+tags:
+  - name: AdminProduct
+  - name: SystemProduct

@@ -1,0 +1,21 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    productIds:
+      - 1
+      - 2
+      - 3
+    isPublish: true
+properties:
+  productIds:
+    type: array
+    description: 物件IDs
+    items:
+      type: integer
+  isPublish:
+    type: boolean
+    description: "\t\n物件掲載フラグ"
+required:
+  - productIds
+  - isPublish
