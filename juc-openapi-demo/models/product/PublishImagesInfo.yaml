@@ -1,0 +1,9 @@
+title: PublishImagesInfo
+type: object
+properties:
+  imageId:
+    type: integer
+    description: 掲載画像ID
+  url:
+    type: string
+    description: 掲載画像URL

@@ -1,0 +1,12 @@
+title: UpdateProductStatusCommand
+type: object
+properties:
+  productId:
+    type: integer
+    description: 物件ID
+  productStatus:
+    type: integer
+    description: 物件ステータス
+required:
+  - productId
+  - productStatus

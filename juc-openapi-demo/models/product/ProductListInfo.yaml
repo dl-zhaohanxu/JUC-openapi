@@ -1,0 +1,66 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    vehicleId: 1001
+    vin: A1B2C3D4
+    vehicleRegisterNumber: 多摩 500 さ 46-46
+    modelName: GRヤリス
+    gradeName: RS GAS 1.5L 2WD(4人)
+    colors: 黒/シルバー
+    firstRegistrationDate: 2021(R3)
+    vehicleRegistrationDate: 2021/01/01
+    vehicleStatus: 1
+    monthlyFee: 12300
+    applicationFee: 100000
+    publishStartDate: '2021-09-09'
+    publishEndDate: '2021-09-19'
+    publishDays: 11
+    productStatus: 1
+    isPublished: true
+    isApplicationFinished: true
+    isContract: true
+    lastModifiedDate: '2021-09-02 12:30:23'
+properties:
+  vehicleId:
+    type: integer
+  vin:
+    type: string
+  vehicleRegisterNumber:
+    type: string
+  modelName:
+    type: string
+  gradeName:
+    type: string
+  colors:
+    type: string
+  firstRegistrationDate:
+    type: string
+  vehicleRegistrationDate:
+    type: string
+    format: date
+  vehicleStatus:
+    type: integer
+  monthlyFee:
+    type: integer
+  applicationFee:
+    type: integer
+  publishStartDate:
+    type: string
+    format: date
+  publishEndDate:
+    type: string
+    format: date
+  publishDays:
+    type: integer
+  productStatus:
+    type: integer
+  isPublished:
+    type: boolean
+  isApplicationFinished:
+    type: boolean
+  isContract:
+    type: boolean
+  lastModifiedDate:
+    type: string
+    format: date-time
