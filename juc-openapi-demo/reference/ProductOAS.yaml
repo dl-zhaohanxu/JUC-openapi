@@ -152,14 +152,7 @@ paths:
   /product/v1/admin/products/file:
     get:
       summary: Your GET endpoint
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
+      responses: {}
       operationId: downloadProduct
       description: 物件一覧画面の「Download」ボタンをクリックする場合、本APIを呼出す。異なるページから物件の検索条件が違うことより、物件の全対象、登録対象、掲載対象のCSVデータのダウンロードファイルを区分する。
       parameters:
