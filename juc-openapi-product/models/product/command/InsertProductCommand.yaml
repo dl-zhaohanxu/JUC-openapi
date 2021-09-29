@@ -1,0 +1,11 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    vehicleId: 1
+properties:
+  vehicleId:
+    type: integer
+    description: 車両ID
+required:
+  - vehicleId

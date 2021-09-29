@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: ProductSystemOAS
+  version: '1.0'
+  description: ProductSystemOAS
+  contact:
+    name: gys
+  summary: ProductSystemOAS
+servers:
+  - url: 'https://offkinto.kinto-mobility.jp'
+paths:
+  /product/v1/system/products:
+    post:
+      summary: Product Add API（SYS）
+      operationId: add
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                description: 物件番号
+      description: 仕分け結果が「OFF KINTO」の場合
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/product/command/InsertProductCommand.yaml
+      tags:
+        - SystemProduct
+  '/product/v1/system/products/preview/{productPreviewId}':
+    parameters:
+      - schema:
+          type: integer
+        name: productPreviewId
+        in: path
+        required: true
+        description: プレビュー番号
+    get:
+      summary: Product Preview Detail API（SYS）
+      tags:
+        - SystemProduct
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/product/resource/ProductPreviewDetailResource.yaml
+      operationId: previewDetail
+      description: EC側からプレビュー番号によって物件のプレビュー情報を取得する。
+  '/product/v1/system/products/{productId}/status':
+    parameters:
+      - schema:
+          type: integer
+        name: productId
+        in: path
+        required: true
+        description: 物件ID
+    put:
+      summary: Product Status Update API（SYS）
+      operationId: updateStatus
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/product/resource/ProductStatusResource.yaml
+      description: 物件IDによって物件ステータスを更新する。
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/product/command/UpdateProductStatusCommand.yaml
+      tags:
+        - SystemProduct
+  '/product/v1/system/products/{productId}':
+    parameters:
+      - schema:
+          type: integer
+        name: productId
+        in: path
+        required: true
+        description: 物件番号
+    get:
+      summary: Product Detail API（EC）
+      tags:
+        - SystemProduct
+      operationId: getDetail
+      description: EC側に物件番号によって物件詳細情報を取得する。
+      responses:
+        '200':
+          description: OK
+components:
+  schemas: {}
+tags:
+  - name: SystemProduct

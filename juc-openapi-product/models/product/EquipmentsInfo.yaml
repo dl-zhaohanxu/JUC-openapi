@@ -1,0 +1,10 @@
+title: EquipmentsInfo
+type: object
+description: 装備
+properties:
+  equipmentClassification:
+    type: string
+    description: 装備分類
+  equipmentName:
+    type: string
+    description: 装備名称

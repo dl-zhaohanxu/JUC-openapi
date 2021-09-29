@@ -1,0 +1,11 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    productStatus: 101
+properties:
+  productStatus:
+    type: integer
+    description: 物件ステータス
+required:
+  - productStatus

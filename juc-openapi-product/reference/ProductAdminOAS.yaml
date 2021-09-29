@@ -2,20 +2,22 @@ openapi: 3.0.3
 info:
   title: ProductAdminOAS
   version: '1.0'
-  description: ''
+  description: ProductAdminOAS
+  contact:
+    name: zxm
 servers:
   - url: 'https://www.offkinto.com'
 paths:
   '/product/v1/admin/products/{productId}':
     parameters:
       - schema:
-          type: string
+          type: integer
         name: productId
         in: path
         required: true
         description: 物件番号
     get:
-      summary: Your GET endpoint
+      summary: Product Detail API
       tags:
         - AdminProduct
       responses:
@@ -28,7 +30,7 @@ paths:
       operationId: detail
       description: FE側に物件番号によって車両詳細情報を取得する。
     put:
-      summary: ''
+      summary: Product Update API
       operationId: update
       responses:
         '200':
@@ -52,8 +54,8 @@ paths:
         - AdminProduct
   /product/v1/admin/products/preview:
     post:
-      summary: ''
-      operationId: preview
+      summary: Product Preview Add API
+      operationId: addPreview
       responses:
         '200':
           description: OK
@@ -73,8 +75,8 @@ paths:
         - AdminProduct
   /product/v1/admin/products:
     post:
-      summary: ''
-      operationId: query
+      summary: Product Search API
+      operationId: search
       responses:
         '200':
           description: OK
@@ -92,26 +94,26 @@ paths:
         - AdminProduct
   /product/v1/admin/products/bulk-publish:
     put:
-      summary: ''
-      operationId: publish
+      summary: Product Bulk Publish/un-Publish API
+      operationId: bulkUpdatePublish
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: ../models/product/resource/ProductPublishResource.yaml
+                $ref: ../models/product/resource/ProductBulkPublishResource.yaml
       description: FE側に物件IDsによって物件掲載状態を纏めて更新する。
       requestBody:
         content:
           application/json:
             schema:
-              $ref: ../models/product/command/UpdateProductPublishCommand.yaml
+              $ref: ../models/product/command/BulkUpdateProductPublishCommand.yaml
       tags:
         - AdminProduct
   /product/v1/admin/products/file:
     post:
-      summary: ''
+      summary: Product CSV Download API
       operationId: download
       responses:
         '200':

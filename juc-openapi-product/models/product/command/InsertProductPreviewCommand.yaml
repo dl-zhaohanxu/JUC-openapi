@@ -23,11 +23,9 @@ properties:
     description: 月額
   comment1:
     type: string
-    minLength: 1
     description: コメント1
   comment2:
     type: string
-    minLength: 1
     description: コメント2
   publicImageIds:
     type: array
