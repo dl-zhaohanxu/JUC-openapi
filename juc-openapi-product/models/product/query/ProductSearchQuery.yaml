@@ -1,0 +1,59 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    pageNum: 1
+    pageSize: 10
+    isPublished: 0
+    vin: A1B2C3D4
+    vehicleRegisterNumberArea: 多摩
+    vehicleRegisterNumberClass: '500'
+    vehicleRegisterNumberKana: さ
+    vehicleRegisterNumberSpecified: 46-46
+    productStatus: 0
+    modelName: GRヤリス
+    gradeName: RS GAS 1.5L 2WD(4人)
+    publishStartDate: '2021-10-01'
+    publishEndDate: '2021-10-01'
+properties:
+  pageNum:
+    type: integer
+    description: ページ番号
+  pageSize:
+    type: integer
+    description: "\t\nページ表示件数"
+  isPublished:
+    type: integer
+    description: 掲載フラグ
+  vin:
+    type: string
+    description: 車台番号
+  vehicleRegisterNumberArea:
+    type: string
+    description: 自動車登録番号（地域）
+  vehicleRegisterNumberClass:
+    type: string
+    description: 自動車登録番号（分類番号）
+  vehicleRegisterNumberKana:
+    type: string
+    description: 自動車登録番号（ひらがな）
+  vehicleRegisterNumberSpecified:
+    type: string
+    description: 自動車登録番号（指定番号
+  productStatus:
+    type: integer
+    description: 物件ステータス
+  modelName:
+    type: string
+    description: 車種名
+  gradeName:
+    type: string
+    description: グレード名
+  publishStartDate:
+    type: string
+    format: date
+    description: 掲載開始日
+  publishEndDate:
+    type: string
+    format: date
+    description: 掲載終了日

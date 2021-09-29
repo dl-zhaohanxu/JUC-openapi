@@ -1,0 +1,47 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    pageNum: 1
+    pageSize: 10
+    totalPage: 2
+    total: 15
+    list:
+      - vehicleId: 1001
+        vin: A1B2C3D4
+        vehicleRegisterNumber: 多摩 500 さ 46-46
+        modelName: GRヤリス
+        gradeName: RS GAS 1.5L 2WD(4人)
+        colors: 黒/シルバー
+        firstRegistrationDate: 2021(R3)
+        vehicleRegistrationDate: 2021/01/01
+        vehicleStatus: 1
+        monthlyFee: 12300
+        applicationFee: 100000
+        publishStartDate: '2021-09-09'
+        publishEndDate: '2021-09-19'
+        publishDays: 11
+        productStatus: 1
+        isPublished: true
+        isApplicationFinished: true
+        isContract: true
+        lastModifiedDate: '2021-09-02 12:30:23'
+properties:
+  pageNum:
+    type: integer
+    description: ページ番号
+  pageSize:
+    type: integer
+    description: ページ表示件数
+  totalPage:
+    type: integer
+    description: ページ総数
+  total:
+    type: integer
+    description: データ件数
+  list:
+    type: array
+    uniqueItems: true
+    description: 物件リスト
+    items:
+      $ref: ../ProductListInfo.yaml
