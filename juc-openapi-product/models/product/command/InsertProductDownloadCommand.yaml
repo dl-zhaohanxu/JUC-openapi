@@ -1,0 +1,39 @@
+title: InsertProductDownloadCommand
+type: object
+description: ''
+properties:
+  isPublished:
+    type: integer
+    description: 掲載フラグ
+  vin:
+    type: string
+    description: 車台番号
+  vehicleRegisterNumberArea:
+    type: string
+    description: 自動車登録番号（地域）
+  vehicleRegisterNumberClass:
+    type: string
+    description: 自動車登録番号（分類番号）
+  vehicleRegisterNumberKana:
+    type: string
+    description: 自動車登録番号（ひらがな）
+  vehicleRegisterNumberSpecified:
+    type: string
+    description: 自動車登録番号（指定番号）
+  productStatus:
+    type: integer
+    description: 物件ステータス
+  modelName:
+    type: string
+    description: 車種名
+  gradeName:
+    type: string
+    description: グレード名
+  publishStartDate:
+    type: string
+    format: date
+    description: 掲載開始日
+  publishEndDate:
+    type: string
+    format: date
+    description: 掲載終了日

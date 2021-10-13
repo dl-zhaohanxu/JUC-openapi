@@ -1,0 +1,15 @@
+title: PublishImagesInfo
+type: object
+properties:
+  imageId:
+    type: integer
+    description: 掲載画像ID
+  imageType:
+    type: integer
+    description: 画像種類
+  url:
+    type: string
+    description: 掲載画像URL
+  isPublic:
+    type: boolean
+    description: 公開するフラグ

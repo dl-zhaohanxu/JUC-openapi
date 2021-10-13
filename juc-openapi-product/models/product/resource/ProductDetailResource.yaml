@@ -1,0 +1,151 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    vin: A1B2C3D4
+    makerName: Toyota
+    modelName: GRヤリス
+    gradeName: RS GAS 1.5L 2WD(4人)
+    salesType: 1
+    firstRegistrationDate: 2021(R3)
+    vehicleRegistrationDate: 2021/01/01
+    doorType: 1
+    backDoorType: 1
+    vehicleBodyShape: 1
+    vehicleBodyShapeCode: code
+    driveWheelsType: 1
+    displacement: 1988
+    fuelType: 1
+    seatsNumber: 5
+    length: 4960
+    width: 1900
+    height: 1500
+    transmission: AT
+    publishStartDate: '2021-09-09'
+    publishEndDate: '2021-09-19'
+    monthlyEstimateId: 123
+    applicationFee: 10000
+    monthlyFee: 12300
+    tfcGuaranteedResidualValue: 20000
+    maintenancePrice: 2000
+    optionalInsurancePremium: 1000
+    residualValue: 100000
+    residualValueRate: 50
+    comment1: 物件comment1
+    comment2: 物件comment2
+    productStatus: 1
+    isPublished: true
+    publishImages:
+      - imageId: 1
+        url: 'https://www.image001.com/'
+properties:
+  vin:
+    type: string
+    description: 車台番号
+  makerName:
+    type: string
+    description: メーカー名
+  modelName:
+    type: string
+    description: 車種名
+  gradeName:
+    type: string
+    description: グレード名
+  salesType:
+    type: integer
+    description: 販売型式
+  firstRegistrationDate:
+    type: string
+    description: 年式
+  vehicleRegistrationDate:
+    type: string
+    format: date
+    description: 車両登録年月日
+  doorType:
+    type: integer
+    description: ドア開閉形式（和）
+  backDoorType:
+    type: integer
+    description: バックドアの種類
+  vehicleBodyShape:
+    type: integer
+    description: 車体の形状
+  vehicleBodyShapeCode:
+    type: string
+    description: 形状記号
+  driveWheelsType:
+    type: integer
+    description: 駆動方式(稼働方式)
+  displacement:
+    type: integer
+    description: 排気量
+  fuelType:
+    type: integer
+    description: 燃料
+  seatsNumber:
+    type: integer
+    description: 乗車定員
+  length:
+    type: integer
+    description: 全長
+  width:
+    type: integer
+    description: 全幅
+  height:
+    type: integer
+    description: 全高
+  transmission:
+    type: string
+    description: ミッション記号
+  publishStartDate:
+    type: string
+    format: date
+    description: 掲載開始日
+  publishEndDate:
+    type: string
+    format: date
+    description: 掲載終了日
+  monthlyEstimateId:
+    type: integer
+    description: 月額見積番号
+  applicationFee:
+    type: integer
+    description: 申込金
+  monthlyFee:
+    type: integer
+    description: 月額
+  tfcGuaranteedResidualValue:
+    type: integer
+    description: TFC保証残価額
+  maintenancePrice:
+    type: integer
+    description: メンテナンス費用
+  optionalInsurancePremium:
+    type: integer
+    description: 任意保険料
+  residualValue:
+    type: integer
+    description: 残価額（KINTO）
+  residualValueRate:
+    type: integer
+    description: '残価率（KINTO）  '
+  comment1:
+    type: string
+    description: コメント1
+  comment2:
+    type: string
+    description: コメント1
+  productStatus:
+    type: integer
+    description: 物件ステータス
+  isPublished:
+    type: boolean
+    description: 掲載フラグ
+  publishImages:
+    description: 掲載画像
+    type: array
+    items:
+      $ref: ../PublishImagesInfo.yaml
+  version:
+    type: integer
+    description: 楽観ロックバージョン

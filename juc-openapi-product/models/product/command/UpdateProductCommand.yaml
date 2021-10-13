@@ -1,0 +1,49 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    monthlyEstimateId: '123'
+    applicationFee: '10000'
+    monthlyFee: '2000'
+    comment1: 物件comment1
+    comment2: 物件comment2
+    isPublish: true
+    publicImageIds:
+      - 1
+      - 2
+      - 3
+title: ''
+properties:
+  monthlyEstimateId:
+    type: integer
+    description: 月額見積り番号
+  applicationFee:
+    type: integer
+    description: 申込金
+  monthlyFee:
+    type: integer
+    description: 月額
+  comment1:
+    type: string
+    description: コメント1
+  comment2:
+    type: string
+    description: コメント2
+  isPublish:
+    type: boolean
+    description: 掲載フラグ
+  publicImageIds:
+    type: array
+    description: 掲載画像ID
+    items:
+      type: integer
+  version:
+    type: integer
+    description: バージョン
+required:
+  - monthlyEstimateId
+  - applicationFee
+  - monthlyFee
+  - isPublish
+  - publicImageIds
+  - version

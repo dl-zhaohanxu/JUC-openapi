@@ -1,0 +1,85 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    vehicleId: 1001
+    vin: A1B2C3D4
+    vehicleRegisterNumber: 多摩 500 さ 46-46
+    modelName: GRヤリス
+    gradeName: RS GAS 1.5L 2WD(4人)
+    colors: 黒/シルバー
+    firstRegistrationDate: 2021(R3)
+    vehicleRegistrationDate: 2021/01/01
+    vehicleStatus: 1
+    monthlyFee: 12300
+    applicationFee: 100000
+    publishStartDate: '2021-09-09'
+    publishEndDate: '2021-09-19'
+    publishDays: 11
+    productStatus: 1
+    isPublished: true
+    isApplicationFinished: true
+    isContract: true
+    lastModifiedDate: '2021-09-02 12:30:23'
+properties:
+  vehicleId:
+    type: integer
+    description: 車両ID
+  vin:
+    type: string
+    description: 車台番号
+  vehicleRegisterNumber:
+    type: string
+    description: 自動車登録番号
+  modelName:
+    type: string
+    description: 車種名
+  gradeName:
+    type: string
+    description: グレード名
+  colors:
+    type: string
+    description: 外鈑色/内装色
+  firstRegistrationDate:
+    type: string
+    description: 年式
+  vehicleRegistrationDate:
+    type: string
+    format: date
+    description: 車両登録年月日
+  vehicleStatus:
+    type: integer
+    description: 車両ステータス
+  monthlyFee:
+    type: integer
+    description: 月額
+  applicationFee:
+    type: integer
+    description: 申込金
+  publishStartDate:
+    type: string
+    format: date
+    description: 掲載開始日
+  publishEndDate:
+    type: string
+    format: date
+    description: 掲載終了日
+  publishDays:
+    type: integer
+    description: 掲載日数
+  productStatus:
+    type: integer
+    description: 物件ステータス
+  isPublished:
+    type: boolean
+    description: 掲載ステータス
+  isApplicationFinished:
+    type: boolean
+    description: 審査申込ステータス
+  isContract:
+    type: boolean
+    description: 成約ステータス
+  lastModifiedDate:
+    type: string
+    format: date-time
+    description: 最終更新日時
