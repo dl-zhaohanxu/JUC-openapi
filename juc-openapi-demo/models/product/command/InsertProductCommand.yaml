@@ -1,0 +1,9 @@
+title: InsertProductCommand
+type: object
+description: ''
+properties:
+  vehicleId:
+    type: integer
+    description: 車両ID
+required:
+  - vehicleId

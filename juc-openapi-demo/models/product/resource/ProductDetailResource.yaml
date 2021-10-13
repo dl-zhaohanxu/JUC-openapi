@@ -146,3 +146,6 @@ properties:
     type: array
     items:
       $ref: ../PublishImagesInfo.yaml
+  version:
+    description: 楽観ロックバージョン
+    type: integer

@@ -1,0 +1,17 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    imageId: 1
+    imageType: 1
+    imageUrl: 'https://www.image001.com/'
+    isPublic: true
+properties:
+  imageId:
+    type: integer
+  imageType:
+    type: integer
+  imageUrl:
+    type: string
+  isPublic:
+    type: boolean

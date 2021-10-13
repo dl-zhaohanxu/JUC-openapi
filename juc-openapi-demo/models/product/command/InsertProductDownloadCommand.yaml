@@ -2,26 +2,18 @@ description: ''
 type: object
 x-examples:
   example-1:
-    pageNum: 1
-    pageSize: 10
     isPublished: 0
-    vin: A1B2C3D4
-    vehicleRegisterNumberArea: 多摩
-    vehicleRegisterNumberClass: '500'
-    vehicleRegisterNumberKana: さ
-    vehicleRegisterNumberSpecified: 46-46
+    vin: string
+    vehicleRegisterNumberArea: string
+    vehicleRegisterNumberClass: string
+    vehicleRegisterNumberKana: string
+    vehicleRegisterNumberSpecified: string
     productStatus: 0
-    modelName: GRヤリス
-    gradeName: RS GAS 1.5L 2WD(4人)
-    publishStartDate: '2021-10-01'
-    publishEndDate: '2021-10-01'
+    modelName: string
+    gradeName: string
+    publishStartDate: '2019-08-24'
+    publishEndDate: '2019-08-24'
 properties:
-  pageNum:
-    type: integer
-    description: ページ番号
-  pageSize:
-    type: integer
-    description: "\t\nページ表示件数"
   isPublished:
     type: integer
     description: 掲載フラグ
@@ -39,7 +31,7 @@ properties:
     description: 自動車登録番号（ひらがな）
   vehicleRegisterNumberSpecified:
     type: string
-    description: 自動車登録番号（指定番号
+    description: '自動車登録番号（指定番号）  '
   productStatus:
     type: integer
     description: 物件ステータス
@@ -51,15 +43,9 @@ properties:
     description: グレード名
   publishStartDate:
     type: string
-    format: date
     description: 掲載開始日
+    format: date
   publishEndDate:
     type: string
-    format: date
     description: 掲載終了日
-  sort:
-    type: string
-    description: ソート フィールド
-  sortType:
-    type: integer
-    description: ソートタイプ
+    format: date

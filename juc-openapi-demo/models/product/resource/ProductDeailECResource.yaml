@@ -1,0 +1,135 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    productId: 1
+    productStatus: 1
+    months: 36
+    publishStartDate: '2021-09-09'
+    modelName: GRヤリス
+    gradeName: RS GAS 1.5L 2WD(4人)
+    comment1: 物件comment1
+    monthlyFee: 10000
+    displayOrder: 1
+    comment2: 物件comment2
+    applicationFee: 10000
+    xxx: 寒冷地仕様
+    length: 4960
+    width: 1900
+    height: 1500
+    seatsNumber: 5
+    hvGasFlag: 1
+    displacement: 1988
+    driveWheelsType: 1
+    transmission: AT
+    firstRegistrationDate: 2021(R3)
+    mileage: 200000
+    outerPlateColor: 赤
+    repairHistory: 修復歴
+    interiorPlateColor: 赤
+    equipmentName: 装備名称
+    comprehensiveEvaluation: '4.5'
+    evaluationComment: '4.5'
+    scheduledInspectionRecords: 定期点検記録簿
+    scheduledInspectionImplementationStatus: 1
+    outerImages: 'https://www.image001.com/'
+    interiorImages: 'https://www.image001.com/'
+    version: 1
+properties:
+  productId:
+    type: integer
+    description: 物件番号
+  productStatus:
+    type: integer
+    description: 物件ステータス
+  months:
+    type: integer
+    description: 月数
+  modelName:
+    type: string
+    description: 車種名
+  gradeName:
+    type: string
+    description: グレード名
+  publishStartDate:
+    type: string
+    description: 掲載開始日
+    format: date
+  comment1:
+    type: string
+    description: 申込金
+  monthlyFee:
+    type: integer
+    description: 月額
+  displayOrder:
+    type: integer
+    description: 表示順
+  comment2:
+    type: string
+    description: 契約期間
+  applicationFee:
+    type: integer
+    description: コメント１
+  length:
+    type: integer
+    description: 全長
+  width:
+    type: integer
+    description: 全幅
+  height:
+    type: integer
+    description: 全高
+  seatsNumber:
+    type: integer
+    description: 乗車定員
+  hvGasFlag:
+    type: integer
+    description: HV/GAS
+  displacement:
+    type: integer
+    description: 排気量
+  driveWheelsType:
+    type: integer
+    description: 駆動方式
+  transmission:
+    type: string
+    description: ミッション
+  firstRegistrationDate:
+    type: string
+    description: 年式（初度登録年月）
+    format: date
+  mileage:
+    type: integer
+    description: 走行距離
+  outerPlateColor:
+    type: string
+    description: 外鈑色
+  interiorPlateColor:
+    type: string
+    description: 内装色
+  equipmentName:
+    type: string
+    description: 装備名称
+  comprehensiveEvaluation:
+    type: string
+    description: 総合評価
+  evaluationComment:
+    type: string
+    description: 評価コメント
+  scheduledInspectionRecords:
+    type: string
+    description: 定期点検記録簿
+  scheduledInspectionImplementationStatus:
+    type: integer
+    description: 定期点検整備実施状況
+  outerImages:
+    type: string
+    description: 外装展開図
+  interiorImages:
+    type: string
+    description: 内装展開図
+  version:
+    type: integer
+    description: 楽観ロックバージョン
+  publishImages:
+    $ref: ../ECProductImageInfo.yaml

@@ -1,0 +1,38 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    pageNum: 1
+    pageSize: 10
+    monthlyFee: '0,20000'
+    length: 280
+    width: 120
+    height: 100
+    seatsNumber: 6
+properties:
+  pageNum:
+    type: number
+    description: ページ番号
+  pageSize:
+    type: number
+    description: ページ表示件数
+  monthlyFee:
+    type: string
+    description: 車種１～N
+  length:
+    type: number
+    description: 月額金額１～N
+  width:
+    type: number
+    description: 全長
+  height:
+    type: number
+    description: 全幅
+  seatsNumber:
+    type: number
+    description: 全高
+  modelCodeList:
+    type: array
+    description: 乗車定員
+    items:
+      type: string

@@ -1,0 +1,30 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    vehicleId: 1001
+    productStatus: 1
+    imageUrl: xxx.img
+    publishStartDate: '2021-09-09'
+    applicationFee: 100000
+    monthlyFee: 12300
+properties:
+  vehicleId:
+    type: integer
+    description: 物件番号
+  productStatus:
+    type: integer
+    description: 物件ステータス
+  imageUrl:
+    type: string
+    description: 画像uri
+  publishStartDate:
+    type: string
+    description: 掲載開始日
+    format: date
+  applicationFee:
+    type: integer
+    description: 申込金
+  monthlyFee:
+    type: integer
+    description: 月額

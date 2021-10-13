@@ -1,0 +1,240 @@
+openapi: 3.0.3
+info:
+  title: openapi
+  version: '1.0'
+  contact:
+    name: quanshun.ju
+  description: 異なるページから物件の検索条件が違うことより、物件の全対象、登録対象、掲載対象のデータを区分する。
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /v1/admin/products:
+    post:
+      summary: Product Search API
+      operationId: searchProductById
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../juc-openapi-demo/models/product/resource/ProductSearchResource.yaml
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../juc-openapi-demo/models/product/query/ProductSearchQuery.yaml
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+      tags:
+        - Product
+      description: 異なるページから物件の検索条件が違うことより、物件の全対象、登録対象、掲載対象のデータを区分する。
+    parameters: []
+  /v1/service/products:
+    get:
+      summary: Product Add API（SYS）
+      tags:
+        - Product
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                description: 物件番号
+      operationId: insertProduct
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../juc-openapi-demo/models/product/command/InsertProductCommand.yaml
+          application/xml:
+            schema:
+              $ref: ../juc-openapi-demo/models/product/command/InsertProductCommand.yaml
+      description: 仕分け結果が「OFF KINTO」の場合、車両IDによって物件を作成して物件番号を返す。
+  '/v1/admin/products/{productId}':
+    parameters:
+      - schema:
+          type: integer
+        name: productId
+        in: path
+        required: true
+        description: 物件番号
+    get:
+      summary: Product Detail API
+      tags:
+        - Product
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../juc-openapi-demo/models/product/resource/ProductDetailResource.yaml
+      operationId: getProductDetailById
+      description: 'FE側に物件番号によって車両詳細情報を取得する。  '
+    put:
+      summary: Product Update API
+      operationId: updateProductById
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+      description: FE側から物件の情報によって物件の情報を更新する。
+      tags:
+        - Product
+  /v1/admin/products/preview:
+    post:
+      summary: Product Preview Add API
+      operationId: addProductsPreview
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+      description: FE側から物件情報によって物件プレビューデータを作成して物件プレビュー番号を返す。
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../juc-openapi-demo/models/product/command/InsertProductPreviewCommand.yaml
+          application/xml:
+            schema:
+              $ref: ../juc-openapi-demo/models/product/command/InsertProductPreviewCommand.yaml
+      tags:
+        - Product
+  '/v1/service/products/preview/{productPreviewId}':
+    parameters:
+      - schema:
+          type: string
+        name: productPreviewId
+        in: path
+        required: true
+        description: プレビュー番号
+    get:
+      summary: Product Preview Detail API（SYS）
+      tags:
+        - Product
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../juc-openapi-demo/models/product/resource/ProductPreviewDetailResource.yaml
+      operationId: getProductPreviewDetailById
+      description: EC側からプレビュー番号によって物件のプレビュー情報を取得する。
+  /v1/admin/products/bulk-publish:
+    put:
+      summary: Product Bulk Publish/un-Publish API
+      operationId: bulkUpdatePublish
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../juc-openapi-demo/models/product/resource/ProductPublishResource.yaml
+      description: FE側に物件IDsによって物件掲載状態を纏めて更新する。
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../juc-openapi-demo/models/product/command/UpdateProductPublishCommand.yaml
+      tags:
+        - Product
+  /v1/admin/products/csv:
+    get:
+      summary: Product CSV Download API
+      tags:
+        - Product
+      operationId: downloadCsv
+      description: 異なるページから物件の検索条件が違うことより、物件の全対象、登録対象、掲載対象のCSVデータのダウンロードファイルを区分する。
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../juc-openapi-demo/models/product/command/InsertProductDownloadCommand.yaml
+      responses:
+        '200':
+          description: OK
+  '/v1/service/products/{productId}/status':
+    parameters:
+      - schema:
+          type: string
+        name: productId
+        in: path
+        required: true
+        description: 物件ID
+    put:
+      summary: Product Status Update API（SYS）
+      tags:
+        - Product
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../juc-openapi-demo/models/product/resource/ProductStatusResource.yaml
+      operationId: updateProductsStatusById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../juc-openapi-demo/models/product/command/UpdateProductStatusCommand.yaml
+      description: 物件IDによって物件ステータスを更新する。
+  /v1/user/products:
+    post:
+      summary: Product Search API（EC）
+      operationId: searchProductsEC
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../juc-openapi-demo/models/product/resource/ProductSearchECResource.yaml
+      description: EC側に検索条件によって物件リストを取得する。
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../juc-openapi-demo/models/product/query/ProductSearchQueryEC.yaml
+      tags:
+        - Product
+  '/v1/user/products/{productId}':
+    parameters:
+      - schema:
+          type: integer
+        name: productId
+        in: path
+        required: true
+        description: 物件番号
+    get:
+      summary: Product Detail API（EC）
+      tags:
+        - Product
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../juc-openapi-demo/models/product/resource/ProductDeailECResource.yaml
+      operationId: getProductDetailECById
+      description: EC側に物件番号によって物件詳細情報を取得する。
+components:
+  schemas: {}
+tags:
+  - name: Product

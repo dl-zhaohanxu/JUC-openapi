@@ -106,7 +106,7 @@ paths:
       description: ECサイドのpreview画面を開く際に、本APIを呼出し、previewの情報をECサイドにresponseする。
       tags:
         - SystemProduct
-  /product/v1/admin/products:
+  product/v1/admin/products:
     post:
       summary: ''
       operationId: findProduct
@@ -128,6 +128,7 @@ paths:
         description: ''
       tags:
         - AdminProduct
+    parameters: []
   /product/v1/admin/products/bulk-publish:
     put:
       summary: ''

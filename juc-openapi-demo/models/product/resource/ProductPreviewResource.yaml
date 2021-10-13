@@ -1,0 +1,6 @@
+title: ProductPreviewResource
+type: object
+properties:
+  previewId:
+    type: integer
+    description: 物件プレビュー番号

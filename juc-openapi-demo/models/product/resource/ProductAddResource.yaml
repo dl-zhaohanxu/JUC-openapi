@@ -1,0 +1,6 @@
+title: ProductAddResource
+type: object
+properties:
+  productId:
+    type: integer
+    description: 物件番号

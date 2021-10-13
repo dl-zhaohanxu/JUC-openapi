@@ -36,9 +36,13 @@ properties:
     description: 掲載画像ID
     items:
       type: integer
+  version:
+    type: integer
+    description: バージョン
 required:
   - monthlyEstimateId
   - applicationFee
   - monthlyFee
   - isPublish
   - publicImageIds
+  - version

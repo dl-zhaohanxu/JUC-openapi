@@ -3,5 +3,6 @@ type: object
 properties:
   productIds:
     type: array
+    description: 成功した物件IDsを更新します
     items:
       type: integer

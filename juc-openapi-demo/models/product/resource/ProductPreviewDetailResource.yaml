@@ -74,4 +74,4 @@ properties:
     minItems: 1
     description: 排気量
     items:
-      $ref: ../equimentsInfo.yaml
+      $ref: ../EquimentsInfo.yaml

@@ -23,19 +23,21 @@ properties:
     description: 月額
   comment1:
     type: string
-    minLength: 1
     description: コメント1
   comment2:
     type: string
-    minLength: 1
     description: コメント2
   publicImageIds:
     type: array
     description: 掲載画像ID
     items:
       type: integer
+  monthlyEstimateId:
+    type: integer
+    description: 月額見積り番号
 required:
   - productId
   - applicationFee
   - monthlyFee
   - publicImageIds
+  - monthlyEstimateId

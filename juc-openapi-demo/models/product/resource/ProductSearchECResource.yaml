@@ -1,0 +1,19 @@
+description: ''
+type: object
+x-examples:
+  example-1:
+    pageNum: 1
+    pageSize: 10
+    totalPage: 2
+    total: 15
+properties:
+  pageNum:
+    type: integer
+  pageSize:
+    type: integer
+  totalPage:
+    type: integer
+  total:
+    type: integer
+  list:
+    $ref: ../ECProductInfo.yaml
